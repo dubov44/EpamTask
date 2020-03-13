@@ -1,0 +1,26 @@
+﻿@model EpamLibrary.WEB.Models.RequestViewModel
+
+@{
+    ViewBag.Title = "Panel";
+}
+
+@section Body{
+
+    <h2>Admin Panel</h2>
+
+    @foreach (var item in Model.Requests)
+    {
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">@item.BookName</h2>
+                    <p class="card-text">@item.ClientName</p>
+                    @if (item.IsDeleted == false)
+                    {
+                        <a href="@Url.Action("Confirm", "Admin", new { id = item.Id })" class="btn btn-secondary">confirm</a>
+                    }
+                </div>
+            </div>
+    }
+
+}
+

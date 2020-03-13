@@ -1,0 +1,71 @@
+﻿@model EpamLibrary.WEB.Models.BookVM.BookViewModel
+
+@{
+    ViewBag.Title = "Book";
+}
+
+@section Body{
+    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+    {
+        <div>
+            <h2>
+                Book
+                <a href="@Url.Action("Edit", "Book", new { id = Model.Id })" class="btn btn-danger">Edit</a>
+            </h2>
+        </div>
+    }
+    <div class="row">
+
+
+        <div class="col-lg-9">
+
+            <div class="card mt-4">
+                <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+                <div class="card-body">
+                    <h3 class="card-title">@Model.Name</h3>
+                    <p class="card-text">@Model.Discription</p>
+                    <div>
+                        <a href="@Url.Action("RentBook", "Book", new { id = Model.Id })" class="btn btn-success">Rent</a>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <p class="text-muted">authors: </p>
+                    @foreach (var author in Model.Authors)
+                    {
+                        <a class="text-dark" href="@Url.Action("AuthorBooks", "Home", new { author = author })">@author</a>
+                    }
+                    <p class="text-muted">genres: </p>
+                    @foreach (var genre in Model.Genres)
+                    {
+                        <a class="text-dark" href="#">@genre</a>
+                    }
+                    <p class="text-muted">publisher: </p>
+                    <a class="text-dark" href="@Url.Action("PublisherBooks", "Home", new { publisher = Model.Publisher })">@Model.Publisher</a>
+                    <p class="text-muted">date: </p>
+                    <a class="text-dark" href="#">@Model.PublicationDate.ToShortDateString()</a>
+                </div>
+            </div>
+
+            @*<div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        Product Reviews
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+                        <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                        <hr>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+                        <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                        <hr>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+                        <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                        <hr>
+                        <a href="#" class="btn btn-success">Leave a Review</a>
+                    </div>
+                </div>*@
+
+        </div>
+
+    </div>
+}
+

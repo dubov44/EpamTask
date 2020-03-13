@@ -1,0 +1,25 @@
+﻿@model EpamLibrary.WEB.Models.RentedBookViewModel
+
+@{
+    ViewBag.Title = "Account";
+}
+
+@section Body{
+    <h2>Account</h2>
+    @foreach (var book in Model.Books)
+    {
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="@Url.Action("Book", "Home", new { id = book.Id })">@book.Name</a>
+                    </h4>
+                    <h5>$24.99</h5>
+                    <p class="card-text">@book.RentDate to @book.ReturnDate</p>
+                </div>
+            </div>
+        </div>
+    }
+}
+

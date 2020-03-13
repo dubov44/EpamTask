@@ -1,0 +1,15 @@
+D:\html\final\EpamLibrary\EpamLibrary.Tables\bin\Debug\EpamLibrary.Tables.dll.config
+D:\html\final\EpamLibrary\EpamLibrary.Tables\bin\Debug\EpamLibrary.Tables.dll
+D:\html\final\EpamLibrary\EpamLibrary.Tables\bin\Debug\EpamLibrary.Tables.pdb
+D:\html\final\EpamLibrary\EpamLibrary.Tables\bin\Debug\EntityFramework.dll
+D:\html\final\EpamLibrary\EpamLibrary.Tables\bin\Debug\EntityFramework.SqlServer.dll
+D:\html\final\EpamLibrary\EpamLibrary.Tables\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\html\final\EpamLibrary\EpamLibrary.Tables\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\html\final\EpamLibrary\EpamLibrary.Tables\bin\Debug\EntityFramework.xml
+D:\html\final\EpamLibrary\EpamLibrary.Tables\bin\Debug\EntityFramework.SqlServer.xml
+D:\html\final\EpamLibrary\EpamLibrary.Tables\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\html\final\EpamLibrary\EpamLibrary.Tables\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\html\final\EpamLibrary\EpamLibrary.Tables\obj\Debug\EpamLibrary.Tables.csproj.CopyComplete
+D:\html\final\EpamLibrary\EpamLibrary.Tables\obj\Debug\EpamLibrary.Tables.dll
+D:\html\final\EpamLibrary\EpamLibrary.Tables\obj\Debug\EpamLibrary.Tables.pdb
+D:\html\final\EpamLibrary\EpamLibrary.Tables\obj\Debug\EpamLibrary.Tables.csprojAssemblyReference.cache
