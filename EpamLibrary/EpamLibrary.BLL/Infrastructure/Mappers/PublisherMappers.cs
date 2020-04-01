@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using EpamLibrary.BLL.DTO;
-using EpamLibrary.Tables.Models;
-using System;
+using EpamLibrary.DAL.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EpamLibrary.BLL.Infrastructure.Mappers
 {
+    /// <summary>
+    /// to interact with publishers
+    /// </summary>
     public static class PublisherMappers
     {
         public static PublisherDTO ToDTO(this Publisher model)

@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpamLibrary.DAL", "EpamLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpamLibrary.BLL", "EpamLibrary.BLL\EpamLibrary.BLL.csproj", "{5C41758A-561C-46F9-ACB3-DBAD3F7F6C83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpamLibrary.Tables", "EpamLibrary.Tables\EpamLibrary.Tables.csproj", "{333A71E9-8582-47F5-AF6C-A0E0900BAF9D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{5C41758A-561C-46F9-ACB3-DBAD3F7F6C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C41758A-561C-46F9-ACB3-DBAD3F7F6C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C41758A-561C-46F9-ACB3-DBAD3F7F6C83}.Release|Any CPU.Build.0 = Release|Any CPU
-		{333A71E9-8582-47F5-AF6C-A0E0900BAF9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{333A71E9-8582-47F5-AF6C-A0E0900BAF9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{333A71E9-8582-47F5-AF6C-A0E0900BAF9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{333A71E9-8582-47F5-AF6C-A0E0900BAF9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

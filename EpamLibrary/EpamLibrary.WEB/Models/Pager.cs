@@ -58,7 +58,7 @@ namespace EpamLibrary.WEB.Models
             if (endPage >= totalPages)
             {
                 endPage = totalPages;
-                startPage = totalPages - pagerLength + 1;
+                startPage = 1;
             }
 
             TotalItems = totalItems;

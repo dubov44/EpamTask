@@ -133,6 +133,9 @@
     <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
@@ -145,6 +148,7 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
@@ -155,9 +159,12 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -226,6 +233,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\PagingHelpers.cs" />
+    <Content Include="App_Code\LineHelpers.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
@@ -233,24 +242,35 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LibrarianController.cs" />
+    <Compile Include="Controllers\PublisherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Automapper\ViewModelMappersProfile.cs" />
     <Compile Include="Models\AuthorVM\AuthorDisplayViewModel.cs" />
     <Compile Include="Models\AuthorVM\AuthorViewModel.cs" />
-    <Compile Include="Models\BookEditModel.cs" />
     <Compile Include="Models\BookVM\BookDisplayViewModel.cs" />
+    <Compile Include="Models\BookVM\BookEditModel.cs" />
     <Compile Include="Models\BookVM\BookViewModel.cs" />
-    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\GenreVM\GenreViewModel.cs" />
+    <Compile Include="Models\IndexViewModel.cs" />
+    <Compile Include="Models\OperationDetailsViewModel.cs" />
     <Compile Include="Models\Pager.cs" />
     <Compile Include="Models\PublisherVM\PublisherDisplayViewModel.cs" />
     <Compile Include="Models\PublisherVM\PublisherViewModel.cs" />
-    <Compile Include="Models\RegisterModel.cs" />
-    <Compile Include="Models\RentedBookViewModel.cs" />
-    <Compile Include="Models\RequestViewModel.cs" />
+    <Compile Include="Models\RentedBookVM\RentedBookViewModel.cs" />
+    <Compile Include="Models\RequestVM\RequestViewModel.cs" />
+    <Compile Include="Models\UserVM\AccountViewModel.cs" />
+    <Compile Include="Models\UserVM\LoginModel.cs" />
+    <Compile Include="Models\UserVM\RegisterModel.cs" />
+    <Compile Include="Models\UserVM\UserManagmentViewModel.cs" />
+    <Compile Include="Models\UserVM\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -260,9 +280,10 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\PagedList.css" />
+    <Content Include="Content\css\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -286,6 +307,12 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -380,7 +407,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -395,18 +421,26 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\SuccessRegister.cshtml" />
-    <Content Include="Views\Home\Book.cshtml" />
-    <Content Include="Views\Admin\Panel.cshtml" />
     <Content Include="Views\Home\Account.cshtml" />
     <Content Include="Views\Book\AddBook.cshtml" />
-    <Content Include="Views\Home\Authors.cshtml" />
-    <Content Include="Views\Home\AuthorBooks.cshtml" />
-    <Content Include="Views\Home\Publishers.cshtml" />
-    <Content Include="Views\Home\PublisherBooks.cshtml" />
     <Content Include="Views\Book\Edit.cshtml" />
+    <Content Include="Views\Book\SuccessRent.cshtml" />
+    <Content Include="Views\Admin\UserManagment.cshtml" />
+    <Content Include="Views\Book\All.cshtml" />
+    <Content Include="Views\Author\All.cshtml" />
+    <Content Include="Views\Book\Author.cshtml" />
+    <Content Include="Views\Book\Details.cshtml" />
+    <Content Include="Views\Genre\All.cshtml" />
+    <Content Include="Views\Book\Genre.cshtml" />
+    <Content Include="Views\Publisher\All.cshtml" />
+    <Content Include="Views\Book\Publisher.cshtml" />
+    <Content Include="Views\Error\ErrorPage.cshtml" />
+    <Content Include="Views\Librarian\Requests.cshtml" />
+    <Content Include="Views\Librarian\ConfirmRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -423,10 +457,6 @@
     <ProjectReference Include="..\EpamLibrary.BLL\EpamLibrary.BLL.csproj">
       <Project>{5c41758a-561c-46f9-acb3-dbad3f7f6c83}</Project>
       <Name>EpamLibrary.BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EpamLibrary.Tables\EpamLibrary.Tables.csproj">
-      <Project>{333A71E9-8582-47F5-AF6C-A0E0900BAF9D}</Project>
-      <Name>EpamLibrary.Tables</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,48 +1,51 @@
-﻿@model EpamLibrary.WEB.Models.LoginModel
+﻿@model EpamLibrary.WEB.Models.UserVM.LoginModel
 
 @{
     ViewBag.Title = "Login";
 }
 
 @section Body{
-    <h2>Login</h2>
-
-
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
+     <div class="login-form mt-5">
+        <div class="cotainer">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header"><h3>Login</h3></div>
+                        <div class="card-body">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <form action="" method="">
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-right" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
 
-        <div class="form-horizontal">
-            <h4>LoginModel</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                </div>
-            </div>
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-right" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        LogIn
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        </div>
     }
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
 }
 
 

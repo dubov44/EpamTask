@@ -21,6 +21,7 @@ D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\Owin.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\System.Web.Optimization.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\Ninject.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\EpamLibrary.Tables.dll
+D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\AutoMapper.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
@@ -54,6 +55,8 @@ D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\System.Web.Optimizatio
 D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\Ninject.xml
 D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\EpamLibrary.Tables.pdb
 D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\EpamLibrary.Tables.dll.config
+D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\AutoMapper.pdb
+D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\AutoMapper.xml
 D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
 D:\html\final\EpamLibrary\EpamLibrary.WEB.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml

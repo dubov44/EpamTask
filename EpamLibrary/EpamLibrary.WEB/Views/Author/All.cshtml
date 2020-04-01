@@ -1,0 +1,19 @@
+﻿@model EpamLibrary.WEB.Models.AuthorVM.AuthorDisplayViewModel
+
+@{
+    ViewBag.Title = "Authors";
+}
+
+@section Body{
+    <h2>Authors</h2>
+
+    @foreach (var item in Model.Authors)
+    {
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">@item.Name (@item.BookQuantity)</h2>
+                <a href="@Url.Action("Author", "Book", new { name = item.Name })" class="btn btn-secondary">Show All Books</a>
+            </div>
+        </div>
+    }
+}

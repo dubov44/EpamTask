@@ -1,0 +1,38 @@
+﻿@model EpamLibrary.WEB.Models.BookVM.BookDisplayViewModel
+@using EpamLibrary.WEB.App_Code
+
+@{
+    ViewBag.Title = "Books";
+}
+
+@section Body{
+    <h2>@ViewBag.Publisher</h2>
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="row">
+                @if (Model.Books.Count() == 0)
+                {
+                    <h2>Ничего не найдено</h2>
+                }
+                @foreach (var book in Model.Books)
+                {
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="@Url.Action("Details", "Book", new { id = book.Id })">@Html.CreateImage(book.ImagePath, "card-img-top")</a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="text-dark">@book.Name</a>
+                                </h4>
+                                <p class="card-text"></p>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <a> @book.PublicationDate.ToShortDateString()</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

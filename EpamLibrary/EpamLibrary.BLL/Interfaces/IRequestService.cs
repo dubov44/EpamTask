@@ -1,17 +1,17 @@
-﻿using EpamLibrary.Tables.Models;
-using System;
+﻿using EpamLibrary.BLL.DTO;
+using EpamLibrary.BLL.Infrastructure;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EpamLibrary.BLL.Interfaces
 {
+    /// <summary>
+    /// operations with requests
+    /// </summary>
     public interface IRequestService
     {
-        IEnumerable<Request> GetAllRequests();
-        void RequestBook(int bookId, string userId);
-        Request GetRequestById(int id);
-        void ConfirmRequest(int id);
+        IEnumerable<RequestDTO> GetAllRequests();
+        OperationDetails RequestBook(int bookId, string userId);
+        RequestDTO GetRequestById(int id);
+        void ConfirmRequest(int id, int period, bool readingRoom = false);
     }
 }

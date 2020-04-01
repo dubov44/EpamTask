@@ -1,0 +1,149 @@
+﻿@using EpamLibrary.WEB.Models;
+@model EpamLibrary.WEB.Models.UserVM.UserManagmentViewModel
+
+@{
+    ViewBag.Title = "UserManagment";
+}
+
+@section Body{
+    <article>
+        @if (ViewBag.Details != null)
+        {
+            if ((ViewBag.Details as OperationDetailsViewModel).Succedeed)
+            {
+                <span class="text-success">@((ViewBag.Details as OperationDetailsViewModel).Message)</span>
+            }
+            else
+            {
+                <span class="text-danger">@((ViewBag.Details as OperationDetailsViewModel).Message)</span>
+            }
+        }
+    </article>
+
+    <div class="card m-2">
+        <div class="card-header">
+            <h3>Librarians</h3>
+        </div>
+        <table class="card-table table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Librarians.Count() == 0)
+                {
+                    <tr>
+                        <td colspan="3" class="text-center">No users found</td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var user in Model.Librarians)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.UserName</td>
+                            <td>@user.Email</td>
+                            <td>
+                                <a href="@Url.Action("UpdradeToUSer", "Admin", new { name = user.UserName })" class="btn btn-dark">
+                                    <b>Remove from librarians</b>
+                                </a>
+                                <a href="@Url.Action("BanUser", "Admin", new { name = user.UserName })" class="btn btn-danger">
+                                    <b>Ban user</b>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card m-2">
+        <div class="card-header">
+            <h3>Users</h3>
+        </div>
+        <table class="card-table table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Users.Count() == 0)
+                {
+                    <tr>
+                        <td colspan="3" class="text-center">No users found</td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var user in Model.Users)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.UserName</td>
+                            <td>@user.Email</td>
+                            <td>
+                                <a href="@Url.Action("UpdradeToLibrarian", "Admin", new { name = user.UserName })" class="btn btn-success">
+                                    <b>Promote to librarian</b>
+                                </a>
+                                <a href="@Url.Action("BanUser", "Admin", new { name = user.UserName })" class="btn btn-danger">
+                                    <b>Ban user</b>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card m-2">
+        <div class="card-header">
+            <h3>Banned users</h3>
+        </div>
+        <table class="card-table table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Banned.Count() == 0)
+                {
+                    <tr>
+                        <td colspan="3" class="text-center">No users found</td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var user in Model.Banned)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.UserName</td>
+                            <td>@user.Email</td>
+                            <td>
+                                <a href="@Url.Action("UpdradeToUSer", "Admin", new { name = user.UserName })" class="btn btn-warning">
+                                    <b>Unban user</b>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+}

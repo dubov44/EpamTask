@@ -51,10 +51,10 @@ D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\roslyn\vbc.rsp
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\roslyn\VBCSCompiler.exe
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\roslyn\VBCSCompiler.exe.config
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\Antlr3.Runtime.dll
+D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\AutoMapper.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\EntityFramework.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\EntityFramework.SqlServer.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\EpamLibrary.BLL.dll
-D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\EpamLibrary.Tables.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\Microsoft.AspNet.Identity.Core.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\Microsoft.AspNet.Identity.Owin.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -102,8 +102,8 @@ D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\EpamLibrary.DAL.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\EpamLibrary.BLL.pdb
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\EpamLibrary.BLL.dll.config
-D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\EpamLibrary.Tables.pdb
-D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\EpamLibrary.Tables.dll.config
+D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\AutoMapper.pdb
+D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\AutoMapper.xml
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\EntityFramework.xml
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\EntityFramework.SqlServer.xml
 D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\Microsoft.AspNet.Identity.Core.xml
@@ -152,6 +152,6 @@ D:\html\final\EpamLibrary\EpamLibrary.WEB\obj\Debug\EpamLibrary.WEB.csprojAssemb
 D:\html\final\EpamLibrary\EpamLibrary.WEB\obj\Debug\EpamLibrary.WEB.csproj.CopyComplete
 D:\html\final\EpamLibrary\EpamLibrary.WEB\obj\Debug\EpamLibrary.WEB.dll
 D:\html\final\EpamLibrary\EpamLibrary.WEB\obj\Debug\EpamLibrary.WEB.pdb
-D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\AutoMapper.dll
-D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\AutoMapper.pdb
-D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\AutoMapper.xml
+D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\NLog.config
+D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\NLog.dll
+D:\html\final\EpamLibrary\EpamLibrary.WEB\bin\NLog.xml

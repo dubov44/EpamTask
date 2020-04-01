@@ -1,25 +1,94 @@
-﻿@model EpamLibrary.WEB.Models.RentedBookViewModel
+﻿@model EpamLibrary.WEB.Models.UserVM.AccountViewModel
+@using EpamLibrary.WEB.Models
+@using EpamLibrary.WEB.App_Code
 
 @{
     ViewBag.Title = "Account";
 }
 
 @section Body{
-    <h2>Account</h2>
-    @foreach (var book in Model.Books)
+    @if (Model.RentedBooks.Count() > 0)
     {
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="@Url.Action("Book", "Home", new { id = book.Id })">@book.Name</a>
-                    </h4>
-                    <h5>$24.99</h5>
-                    <p class="card-text">@book.RentDate to @book.ReturnDate</p>
-                </div>
+        <h2>Debt: @ViewBag.Debt</h2>
+    }
+        <article>
+            @if (ViewBag.Details != null)
+            {
+                if ((ViewBag.Details as OperationDetailsViewModel).Succedeed)
+                {
+                    <span class="text-success">@((ViewBag.Details as OperationDetailsViewModel).Message)</span>
+                }
+                else
+                {
+                    <span class="text-danger">@Html.Nl2Br((ViewBag.Details as OperationDetailsViewModel).Message)</span>
+                }
+            }
+        </article>
+        <div class="row">
+            @if (Model.RentedBooks.Count() == 0)
+            {
+                <h2>No books yet</h2>
+            }
+            else
+            {
+                foreach (var book in Model.RentedBooks)
+                {
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="@Url.Action("Details", "Book", new { id = book.Id })"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    @if (book.IsExpired == true)
+                                    {
+                                        <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="alert-danger">@book.Name</a>
+                                        <b>(@book.Debt)</b>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Details", "Book", new { id = book.Id })">@book.Name</a>
+                                    }
+                                </h4>
+                                <h5>$@book.Penalty</h5>
+                                <p class="card-text">@book.RentDate.ToShortDateString() to @book.ReturnDate.ToShortDateString()</p>
+                                <a href="@Url.Action("RemoveBook", "Home", new { id = book.Id })" class="btn btn-danger">
+                                    <b>Remove</b>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div class="card m-2">
+            <div class="card-header">
+                <h3>Your Requests</h3>
             </div>
+            <table class="card-table table">
+                <thead>
+                    <tr>
+                        <th scope="col">Book</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Requests.Count() == 0)
+                    {
+                        <tr>
+                            <td colspan="3" class="text-center">No requests found</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var request in Model.Requests)
+                        {
+                            <tr>
+                                <td>@request.BookName</td>
+                                <td>Vaiting for confirmarion</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
         </div>
     }
-}
 

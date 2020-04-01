@@ -3,7 +3,6 @@ D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\EpamLibrary.DAL.dll
 D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\EpamLibrary.DAL.pdb
 D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\EntityFramework.dll
 D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\EntityFramework.SqlServer.dll
-D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\EpamLibrary.Tables.dll
 D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
@@ -21,8 +20,6 @@ D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\System.Web.WebPages.Deployme
 D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\System.Web.WebPages.dll
 D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\System.Web.WebPages.Razor.dll
 D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\WebActivatorEx.dll
-D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\EpamLibrary.Tables.pdb
-D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\EpamLibrary.Tables.dll.config
 D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\EntityFramework.xml
 D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\EntityFramework.SqlServer.xml
 D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
@@ -56,10 +53,6 @@ D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.R
 D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.RBDb4.resources
 D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.RBDb5.resources
 D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.HZDb.resources
-D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.csproj.GenerateResource.cache
-D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.csproj.CopyComplete
-D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.dll
-D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.pdb
 D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.HZDb2.resources
 D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.EditionDb.resources
 D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.EditionDb2.resources
@@ -67,3 +60,14 @@ D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.E
 D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.PublisherDb.resources
 D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.DebtDb.resources
 D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.DiscriptionDb.resources
+D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.csproj.GenerateResource.cache
+D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.csproj.CopyComplete
+D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.dll
+D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.pdb
+D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.newDb.resources
+D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.dalDb.resources
+D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.imgDB.resources
+D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\NLog.config
+D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\NLog.dll
+D:\html\final\EpamLibrary\EpamLibrary.DAL\bin\Debug\NLog.xml
+D:\html\final\EpamLibrary\EpamLibrary.DAL\obj\Debug\EpamLibrary.DAL.Migrations.rqstDB.resources

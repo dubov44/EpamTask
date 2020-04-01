@@ -1,6 +1,8 @@
-﻿using EpamLibrary.DAL.Identity;
-using EpamLibrary.Tables.Models;
+﻿using EpamLibrary.DAL.Entities;
+using EpamLibrary.DAL.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.Data.Entity;
 using System.Threading.Tasks;
 
 namespace EpamLibrary.DAL.Interfaces

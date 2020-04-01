@@ -1,0 +1,19 @@
+﻿@using EpamLibrary.WEB.Models.GenreVM
+@model EpamLibrary.WEB.Models.IndexViewModel<GenreViewModel>
+@{
+    ViewBag.Title = "Genres";
+}
+
+@section  Body{
+
+    <h2>Genres</h2>
+    @foreach (var item in Model.Items)
+    {
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">@item.Name (@item.BookQuantity)</h2>
+                <a href="@Url.Action("Genre", "Book", new { name = item.Name })" class="btn btn-secondary">Show All Books</a>
+            </div>
+        </div>
+    }
+}

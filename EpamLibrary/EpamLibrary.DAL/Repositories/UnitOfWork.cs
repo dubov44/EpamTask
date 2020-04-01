@@ -5,8 +5,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Threading.Tasks;
 using EpamLibrary.DAL.Identity;
-using EpamLibrary.Tables.Models;
 using System.Data.Common;
+using System.Data.Entity;
 
 namespace EpamLibrary.DAL.Repositories
 {

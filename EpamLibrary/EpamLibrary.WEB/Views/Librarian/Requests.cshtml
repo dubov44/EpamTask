@@ -1,0 +1,89 @@
+﻿@using EpamLibrary.WEB.Models.RequestVM
+@model EpamLibrary.WEB.Models.IndexViewModel<RequestViewModel>
+
+@{
+    ViewBag.Title = "Librarian Panel";
+}
+
+@section Body{
+
+    <div class="card m-2">
+        <div class="card-header">
+            <h3>Requests</h3>
+        </div>
+        <table class="card-table table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Book</th>
+                    <th scope="col">User</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Items.Where(i => i.IsDeleted == false).Count() == 0)
+                {
+                    <tr>
+                        <td colspan="3" class="text-center">No requests found</td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var request in Model.Items.Where(i => i.IsDeleted == false))
+                    {
+                        <tr>
+                            <td>@request.Id</td>
+                            <td>@request.BookName</td>
+                            <td>@request.ClientName</td>
+                            <td>
+                                <a href="@Url.Action("ConfirmRequest", "Librarian", new { id = request.Id })" class="btn btn-success">
+                                    <b>confirm</b>
+                                </a>
+                                <a href="@Url.Action("ConfirmRequestToReadingRoom", "Librarian", new { id = request.Id })" class="btn btn-info">
+                                    <b>give to reading room</b>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card m-2">
+        <div class="card-header">
+            <h3>Completed Requests</h3>
+        </div>
+        <table class="card-table table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Book</th>
+                    <th scope="col">User</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Items.Where(i => i.IsDeleted == true).Count() == 0)
+                {
+                    <tr>
+                        <td colspan="3" class="text-center">No requests found</td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var request in Model.Items.Where(i => i.IsDeleted == true))
+                    {
+                        <tr>
+                            <td>@request.Id</td>
+                            <td>@request.BookName</td>
+                            <td>@request.ClientName</td>
+                            <td></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}
+

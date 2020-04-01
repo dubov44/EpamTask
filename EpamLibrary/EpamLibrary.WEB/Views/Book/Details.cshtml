@@ -1,0 +1,68 @@
+﻿@model EpamLibrary.WEB.Models.BookVM.BookViewModel
+@using EpamLibrary.WEB.Models;
+@using EpamLibrary.WEB.App_Code;
+
+@{
+    ViewBag.Title = "Book";
+}
+
+@section Body{
+    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+    {
+        <div>
+            <h2>
+                Book
+                <a href="@Url.Action("Edit", "Book", new { id = Model.Id })" class="btn btn-danger">Edit</a>
+            </h2>
+        </div>
+    }
+    <article>
+        @if (ViewBag.Details != null)
+        {
+            if ((ViewBag.Details as OperationDetailsViewModel).Succedeed)
+            {
+                <span class="text-monospace">@((ViewBag.Details as OperationDetailsViewModel).Message)</span>
+            }
+            else
+            {
+                <span class="text-danger">@Html.Nl2Br((ViewBag.Details as OperationDetailsViewModel).Message)</span>
+            }
+        }
+    </article>
+    <div class="row">
+
+
+        <div class="col-lg-9">
+
+            <div class="card mt-4">
+                @*<img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">*@
+                <div class="card-body">
+                    <h3 class="card-title">@Model.Name</h3>
+                    <p class="card-text">@Model.Discription</p>
+                    <div>
+                        <a href="@Url.Action("RentBook", "Book", new { id = Model.Id })" class="btn btn-success">Rent</a>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <p class="text-muted">authors: </p>
+                    @foreach (var author in Model.Authors)
+                    {
+                        <a class="text-dark" href="@Url.Action("Author", "Book", new { name = author })">@author</a>
+                    }
+                    <p class="text-muted">genres: </p>
+                    @foreach (var genre in Model.Genres)
+                    {
+                        <a class="text-dark" href="@Url.Action("Genre", "Book", new { name = genre })">@genre</a>
+                    }
+                    <p class="text-muted">publisher: </p>
+                    <a class="text-dark" href="@Url.Action("Publisher", "Book", new { name = Model.Publisher })">@Model.Publisher</a>
+                    <p class="text-muted">date: </p>
+                    <a class="text-dark" href="#">@Model.PublicationDate.ToShortDateString()</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <a href="">@Html.CreateImage(Model.ImagePath, "card-img-top")</a>
+        </div>
+    }
+

@@ -67,12 +67,20 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -103,10 +111,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="EF\ApplicationContext.cs" />
     <Compile Include="EF\DbInitializer.cs" />
+    <Compile Include="Entities\Abstract\AbstractDbObject.cs" />
     <Compile Include="Entities\ApplicationRole.cs" />
+    <Compile Include="Entities\ApplicationUser.cs" />
+    <Compile Include="Entities\Author.cs" />
+    <Compile Include="Entities\Book.cs" />
+    <Compile Include="Entities\ClientProfile.cs" />
+    <Compile Include="Entities\Comment.cs" />
+    <Compile Include="Entities\Genre.cs" />
+    <Compile Include="Entities\Publisher.cs" />
+    <Compile Include="Entities\RentedBook.cs" />
+    <Compile Include="Entities\Request.cs" />
     <Compile Include="Identity\ApplicationRoleManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
     <Compile Include="Interfaces\IBookRepository.cs" />
@@ -205,6 +222,22 @@
     <Compile Include="Migrations\202003131941439_DiscriptionDb.designer.cs">
       <DependentUpon>202003131941439_DiscriptionDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003301303181_newDb.cs" />
+    <Compile Include="Migrations\202003301303181_newDb.designer.cs">
+      <DependentUpon>202003301303181_newDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003311209061_dalDb.cs" />
+    <Compile Include="Migrations\202003311209061_dalDb.designer.cs">
+      <DependentUpon>202003311209061_dalDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004010032030_imgDB.cs" />
+    <Compile Include="Migrations\202004010032030_imgDB.designer.cs">
+      <DependentUpon>202004010032030_imgDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004010609567_rqstDB.cs" />
+    <Compile Include="Migrations\202004010609567_rqstDB.designer.cs">
+      <DependentUpon>202004010609567_rqstDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BookRepository.cs" />
@@ -214,13 +247,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EpamLibrary.Tables\EpamLibrary.Tables.csproj">
-      <Project>{333a71e9-8582-47f5-af6c-a0e0900baf9d}</Project>
-      <Name>EpamLibrary.Tables</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003011500031_InitialCreate.resx">
@@ -291,6 +324,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003131941439_DiscriptionDb.resx">
       <DependentUpon>202003131941439_DiscriptionDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003301303181_newDb.resx">
+      <DependentUpon>202003301303181_newDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003311209061_dalDb.resx">
+      <DependentUpon>202003311209061_dalDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004010032030_imgDB.resx">
+      <DependentUpon>202004010032030_imgDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004010609567_rqstDB.resx">
+      <DependentUpon>202004010609567_rqstDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

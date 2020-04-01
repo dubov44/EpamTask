@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "SuccessRent";
+}
+
+@section Body{
+    <div class="starter-template">
+        <h1>Book request created</h1>
+        <p class="lead">Please wait until the librarian confirms your order<br>You can always check status of your request in your account</p>
+        <a href="@Url.Action("All", "Book")" class="btn btn-outline-primary"><b>Back to books</b></a>
+        <a href="@Url.Action("Account", "Home")" class="btn btn-outline-secondary"><b>To my account</b></a>
+    </div>
+}

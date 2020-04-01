@@ -7,10 +7,15 @@ using EpamLibrary.BLL.Infrastructure;
 
 namespace EpamLibrary.BLL.Interfaces
 {
+    /// <summary>
+    /// operations with users
+    /// </summary>
     public interface IUserService : IDisposable
     {
         Task<OperationDetails> Create(UserDTO userDto);
         Task<ClaimsIdentity> Authenticate(UserDTO userDto);
-        Task SetInitialData(UserDTO adminDto, List<string> roles);
+        IEnumerable<UserDTO> GetUsersByRole(string roleName = null);
+        OperationDetails AddToRole(string userName, string roleName);
+        string GetUserRole(string userName);
     }
 }

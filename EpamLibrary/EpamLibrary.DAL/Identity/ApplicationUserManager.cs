@@ -1,6 +1,5 @@
 ﻿using EpamLibrary.DAL.Entities;
 using Microsoft.AspNet.Identity;
-using EpamLibrary.Tables.Models;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.AspNet.Identity.EntityFramework;

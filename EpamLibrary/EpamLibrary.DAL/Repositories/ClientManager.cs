@@ -1,7 +1,6 @@
 ﻿using EpamLibrary.DAL.EF;
 using EpamLibrary.DAL.Entities;
 using EpamLibrary.DAL.Interfaces;
-using EpamLibrary.Tables.Models;
 using System.Data.Entity;
 using System.Linq;
 

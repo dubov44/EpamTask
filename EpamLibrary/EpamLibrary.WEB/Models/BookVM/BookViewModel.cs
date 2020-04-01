@@ -13,6 +13,7 @@ namespace EpamLibrary.WEB.Models.BookVM
         public string Name { get; set; }
         public int Quantity { get; set; }
         public string Discription { get; set; }
+        public string ImagePath { get; set; }
         [DataType(DataType.Date)]
         public DateTime PublicationDate { get; set; }
         public ICollection<string> Authors { get; set; }

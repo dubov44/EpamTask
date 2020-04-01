@@ -1,6 +1,5 @@
 ﻿using EpamLibrary.DAL.Entities;
 using System;
-using EpamLibrary.Tables.Models;
 
 namespace EpamLibrary.DAL.Interfaces
 {

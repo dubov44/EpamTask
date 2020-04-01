@@ -1,0 +1,94 @@
+﻿@model EpamLibrary.WEB.Models.RequestVM.RequestViewModel
+
+@{
+    ViewBag.Title = "Confirm";
+}
+
+@section Body{
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="request-form mt-5">
+            <div class="cotainer">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header"><h3>Confirm request</h3></div>
+                            <div class="card-body">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.Id)
+                                <form action="" method="">
+
+                                    <div class="form-group row">
+                                        <label class="col-md-4 col-form-label text-md-right">User</label>
+                                        <div class="display-field">
+                                            @Html.TextBoxFor(model => model.ClientName, new { disabled = "disabled", @class = "form-control" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-4 col-form-label text-md-right">Book</label>
+                                        <div class="display-field">
+                                            @Html.TextBoxFor(model => model.BookName, new { disabled= "disabled", @class = "form-control" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        @Html.LabelFor(model => model.Period, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-right" })
+                                        <div class="col-md-6">
+                                            @Html.EditorFor(model => model.Period, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Period, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            Confirm
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+                <dl class="dl-horizontal">
+                    <dt>
+                        Client:
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ClientName)
+                    </dd>
+
+                    <dt>
+                        Book:
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.BookName)
+                    </dd>
+                </dl>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Period, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Period, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Period, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>*@
+    }
+}

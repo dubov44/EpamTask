@@ -9,6 +9,7 @@ using EpamLibrary.BLL.DTO;
 using System.Security.Claims;
 using EpamLibrary.BLL.Interfaces;
 using EpamLibrary.BLL.Infrastructure;
+using EpamLibrary.WEB.Models.UserVM;
 
 namespace EpamLibrary.Controllers
 {
@@ -37,9 +38,8 @@ namespace EpamLibrary.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginModel model)
+        public async Task<ActionResult> Login(LoginModel model, string returnUrl)
         {
-            //await SetInitialDataAsync();
             if (ModelState.IsValid)
             {
                 UserDTO userDto = new UserDTO { Email = model.Email, Password = model.Password };
@@ -55,6 +55,8 @@ namespace EpamLibrary.Controllers
                     {
                         IsPersistent = true
                     }, claim);
+                    if (!string.IsNullOrEmpty(returnUrl))
+                        return Redirect(returnUrl);
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -76,7 +78,6 @@ namespace EpamLibrary.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterModel model)
         {
-            //await SetInitialDataAsync();
             if (ModelState.IsValid)
             {
                 UserDTO userDto = new UserDTO
@@ -88,7 +89,15 @@ namespace EpamLibrary.Controllers
                 };
                 OperationDetails operationDetails = await UserService.Create(userDto);
                 if (operationDetails.Succedeed)
+                {
+                    ClaimsIdentity claim = await UserService.Authenticate(userDto);
+                    AuthenticationManager.SignOut();
+                    AuthenticationManager.SignIn(new AuthenticationProperties
+                    {
+                        IsPersistent = true
+                    }, claim);
                     return View("SuccessRegister");
+                }
                 else
                     ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
             }

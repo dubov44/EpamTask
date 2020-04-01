@@ -1,13 +1,12 @@
 ﻿using EpamLibrary.BLL.Interfaces;
-using EpamLibrary.Tables.Models;
 using EpamLibrary.WEB.Infrastructure.Automapper;
 using EpamLibrary.WEB.Models;
-using EpamLibrary.WEB.Models.AuthorVM;
-using EpamLibrary.WEB.Models.BookVM;
-using EpamLibrary.WEB.Models.PublisherVM;
+using EpamLibrary.WEB.Models.RentedBookVM;
+using EpamLibrary.WEB.Models.UserVM;
 using Microsoft.AspNet.Identity;
+using NLog;
 using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,61 +17,18 @@ namespace EpamLibrary.WEB.Controllers
     {
         private readonly IBookService _bookService;
         private readonly IRentedBookService _rentedBookService;
+        private readonly IRequestService _requestService;
         public HomeController(IBookService bookService, 
-            IRentedBookService rentedBookService)
+            IRentedBookService rentedBookService, 
+            IRequestService requestService)
         {
             _bookService = bookService;
             _rentedBookService = rentedBookService;
+            _requestService = requestService;
         }
-        public ActionResult Index(string search = null, DateTime? start = null, DateTime? end = null)
+        public ActionResult Index()
         {
-            var books = new BookDisplayViewModel()
-            {
-                Books = _bookService.GetAllBooks(search, start, end).ToDisplayVM()
-            };
-            return View(books);
-        }
-        public ActionResult Authors()
-        {
-            var books = new AuthorDisplayViewModel()
-            {
-                Authors = _bookService.GetAllAuthors().ToDisplayVM()
-            };
-            return View(books);
-        }
-        public ActionResult AuthorBooks(string author)
-        {
-            if(author == null || _bookService.GetAllAuthors().Where(a => a.Name == author).SingleOrDefault() == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Author = author;
-            var books = new BookDisplayViewModel()
-            {
-                Books = _bookService.GetSpecificAuthorBooks(author).ToDisplayVM()
-            };
-            return View(books);
-        }
-        public ActionResult Publishers()
-        {
-            var books = new PublisherDisplayViewModel()
-            {
-                Publishers = _bookService.GetAllPublishers().ToDisplayVM()
-            };
-            return View(books);
-        }
-        public ActionResult PublisherBooks(string publisher)
-        {
-            if (publisher == null || _bookService.GetAllPublishers().Where(a => a.Name == publisher).SingleOrDefault() == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Publisher = publisher;
-            var books = new BookDisplayViewModel()
-            {
-                Books = _bookService.GetSpecificPublisherBooks(publisher).ToDisplayVM()
-            };
-            return View(books);
+            return View();
         }
         public ActionResult About()
         {
@@ -80,38 +36,29 @@ namespace EpamLibrary.WEB.Controllers
 
             return View();
         }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-        public ActionResult Book(int? id)
-        {
-            int bookId = id.GetValueOrDefault();
-            if (bookId != 0)
-            {
-                var selected = _bookService.GetBookById(bookId).ToDisplayVM();
-
-                if (selected == null)
-                    return HttpNotFound();
-                else
-                    return View(selected);
-
-
-            }
-            return HttpNotFound();
-        }
-        [Authorize]
+        [Authorize(Roles = "user, admin, librarian")]
         public ActionResult Account()
         {
-            var rentedBooks = new RentedBookViewModel()
+            if (TempData["details"] != null)
+                ViewBag.Details = TempData["details"] as OperationDetailsViewModel;
+            var rentedBooks = new AccountViewModel()
             {
-                Books = _rentedBookService.GetAllRentedBooks(User.Identity.GetUserId()).ToList()
+                RentedBooks = _rentedBookService.GetAllRentedBooks(User.Identity.GetUserId()).ToDisplayVM(),
+                Requests = _requestService.GetAllRequests().Where(r => r.ClientProfileId == User.Identity.GetUserId() && r.IsDeleted == false).ToDisplayVM()
             };
+            ViewBag.Debt = _rentedBookService.GetUserDebt(User.Identity.GetUserId());
 
             return View(rentedBooks);
+        }
+        [Authorize(Roles = "user, admin, librarian")]
+        public ActionResult RemoveBook(int? id)
+        {
+            if (id == null)
+                return HttpNotFound();
+            var details = _rentedBookService.Remove(id.GetValueOrDefault()).ToDisplayVM();
+            TempData["details"] = details;
+            TempData.Keep("details");
+            return RedirectToAction("Account", "Home");
         }
     }
 }

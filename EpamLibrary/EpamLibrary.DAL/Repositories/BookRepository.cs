@@ -1,10 +1,9 @@
 ﻿using EpamLibrary.DAL.EF;
+using EpamLibrary.DAL.Entities;
 using EpamLibrary.DAL.Interfaces;
-using EpamLibrary.Tables.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace EpamLibrary.DAL.Repositories
 {
@@ -38,13 +37,18 @@ namespace EpamLibrary.DAL.Repositories
             _context.Books.Add(item);
             _context.SaveChanges();
         }
+
+        /// <summary>
+        /// updates selected book
+        /// </summary>
         public void UpdateBook(Book item)
         {
-            //AuthorsGenresPublisher(item, true);
             Book tempB = GetById(item.Id);
             tempB.Name = item.Name;
             tempB.Quantity = item.Quantity;
             tempB.PublicationDate = item.PublicationDate;
+            if(item.ImagePath != "http://placehold.it/225x337")
+                tempB.ImagePath = item.ImagePath;
 
             var authors = item.Authors.ToList();
             tempB.Authors.Clear();

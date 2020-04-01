@@ -67,12 +67,20 @@
     <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -104,10 +112,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
-    <Compile Include="DTO\Abstract\AbstractDTOObject.cs" />
     <Compile Include="DTO\AuthorDTO.cs" />
     <Compile Include="DTO\BookDTO.cs" />
-    <Compile Include="DTO\ClientProfileDTO.cs" />
     <Compile Include="DTO\GenreDTO.cs" />
     <Compile Include="DTO\PublisherDTO.cs" />
     <Compile Include="DTO\RentedBookDTO.cs" />
@@ -115,7 +121,11 @@
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Infrastructure\Mappers\AuthorMappers.cs" />
     <Compile Include="Infrastructure\Mappers\BookMappers.cs" />
+    <Compile Include="Infrastructure\Mappers\GenreMappers.cs" />
     <Compile Include="Infrastructure\Mappers\PublisherMappers.cs" />
+    <Compile Include="Infrastructure\Mappers\RentedBookMappers.cs" />
+    <Compile Include="Infrastructure\Mappers\RequestMappers.cs" />
+    <Compile Include="Infrastructure\Mappers\UserMappers.cs" />
     <Compile Include="Infrastructure\OperationDetails.cs" />
     <Compile Include="Interfaces\IBookService.cs" />
     <Compile Include="Interfaces\IRentedBookService.cs" />
@@ -135,13 +145,15 @@
       <Project>{3a9ce51d-c2a0-45f5-bfcf-a572badf38a6}</Project>
       <Name>EpamLibrary.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EpamLibrary.Tables\EpamLibrary.Tables.csproj">
-      <Project>{333a71e9-8582-47f5-af6c-a0e0900baf9d}</Project>
-      <Name>EpamLibrary.Tables</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

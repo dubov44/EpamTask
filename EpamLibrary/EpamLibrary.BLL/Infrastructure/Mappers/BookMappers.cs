@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using EpamLibrary.BLL.DTO;
-using EpamLibrary.Tables.Models;
-using System;
+using EpamLibrary.DAL.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EpamLibrary.BLL.Infrastructure.Mappers
 {
+    /// <summary>
+    /// to interact with books
+    /// </summary>
     public static class BookMappers
     {
         public static BookDTO ToDTO(this Book model)
@@ -19,6 +19,7 @@ namespace EpamLibrary.BLL.Infrastructure.Mappers
                 .ForMember("Id", opt => opt.MapFrom(x => x.Id))
                 .ForMember("IsDeleted", opt => opt.MapFrom(x => x.IsDeleted))
                 .ForMember("Name", opt => opt.MapFrom(x => x.Name))
+                .ForMember("ImagePath", opt => opt.MapFrom(x => x.ImagePath))
                 .ForMember("Quantity", opt => opt.MapFrom(x => x.Quantity))
                 .ForMember("Discription", opt => opt.MapFrom(x => x.Discription))
                 .ForMember("PublicationDate", opt => opt.MapFrom(x => x.PublicationDate))
@@ -79,6 +80,7 @@ namespace EpamLibrary.BLL.Infrastructure.Mappers
                 .ForMember("Name", opt => opt.MapFrom(x => x.Name))
                 .ForMember("Quantity", opt => opt.MapFrom(x => x.Quantity))
                 .ForMember("Discription", opt => opt.MapFrom(x => x.Discription))
+                .ForMember("ImagePath", opt => opt.MapFrom(x => x.ImagePath))
                 .ForMember("PublicationDate", opt => opt.MapFrom(x => x.PublicationDate))
                 .ForMember("Authors", opt => opt.MapFrom(x => x.Authors.ToAuthors()))
                 .ForMember("Genres", opt => opt.MapFrom(x => x.Genres.ToGenres()))

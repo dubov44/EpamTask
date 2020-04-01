@@ -1,68 +1,103 @@
-﻿using EpamLibrary.BLL.Interfaces;
+﻿using EpamLibrary.BLL.DTO;
+using EpamLibrary.BLL.Infrastructure;
+using EpamLibrary.BLL.Infrastructure.Mappers;
+using EpamLibrary.BLL.Interfaces;
+using EpamLibrary.DAL.Entities;
 using EpamLibrary.DAL.Interfaces;
-using EpamLibrary.Tables.Models;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EpamLibrary.BLL.Services
 {
     public class RequestService : IRequestService
     {
         private readonly IUnitOfWork _unitOfWork;
+        Logger log = LogManager.GetCurrentClassLogger();
 
         public RequestService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public IEnumerable<Request> GetAllRequests()
+        /// <summary>
+        /// returns all requests
+        /// </summary>
+        public IEnumerable<RequestDTO> GetAllRequests()
         {
-            var requests = _unitOfWork.RequestRepository.Get().OrderByDescending(b => b.Id);
-            return requests;
+            return _unitOfWork.RequestRepository.Get().OrderByDescending(b => b.Id).ToDTO();
         }
-        public Request GetRequestById(int id)
+
+        /// <summary>
+        /// returns request by id
+        /// </summary>
+        public RequestDTO GetRequestById(int id)
         {
-            return _unitOfWork.RequestRepository.GetById(id);
+            return _unitOfWork.RequestRepository.GetById(id).ToDTO();
         }
-        public void RequestBook(int bookId, string userId)
+
+        /// <summary>
+        /// creates request for selected book from current user
+        /// </summary>
+        public OperationDetails RequestBook(int bookId, string userId)
         {
             var book = _unitOfWork.BookRepository.GetById(bookId);
+            if (book.Quantity <= 0)
+                return new OperationDetails(false, "Sorry, this book is out of stock now", "");
             if (book != null)
             {
-                var client = _unitOfWork.ClientManager.GetById(userId);
+                var user = _unitOfWork.ClientManager.GetById(userId);
+                if (user == null)
+                {
+                    log.Error($"User [{userId}] not found");
+                    return new OperationDetails(false, "User not found", "");
+                }
+                if(_unitOfWork.RequestRepository.Get(r => r.ClientProfileId == userId && r.BookId == bookId && r.IsDeleted == false).Any())
+                    return new OperationDetails(false, "You had already requested this book \n Please, wait for librarian to confirm your request", "");
+                if (_unitOfWork.RentedBookRepository.Get(b => b.ClientProfileId == userId && b.BookId == bookId && b.IsDeleted == false).Any())
+                    return new OperationDetails(false, "You already have this book on your account \nYou must return it before getting the same one", "");
                 var request = new Request() {Book = book,
                     BookName = book.Name,
-                    ClientProfile = client, 
-                    ClientName = client.Email };
+                    ClientProfile = user, 
+                    ClientName = user.Email };
                 _unitOfWork.RequestRepository.Create(request);
                 book.Requests.Add(request);
                 _unitOfWork.BookRepository.Update(book);
+                log.Info($"User [{user.Name}] requested book [{book.Name}]");
+                return new OperationDetails(true, "", "");
             }
+            log.Error($"Book [{bookId}] not found");
+            return new OperationDetails(false, "Book not found", "");
         }
-        public void ConfirmRequest(int id)
+
+        /// <summary>
+        /// creates requested book and adds it to user on selected period
+        /// </summary>
+        public void ConfirmRequest(int id, int period, bool readingRoom = false)
         {
-            var request = _unitOfWork.RequestRepository.GetById(id);
-            if (request != null)
+            var requestedBook = _unitOfWork.RequestRepository.GetById(id);
+            if (requestedBook != null)
             {
                 var rentedBook = new RentedBook()
                 {
-                    BookId = request.BookId,
-                    Name = request.BookName,
-                    ClientProfile = _unitOfWork.ClientManager.GetById(request.ClientProfileId),
+                    BookId = requestedBook.BookId,
+                    Name = requestedBook.BookName,
+                    ClientProfile = _unitOfWork.ClientManager.GetById(requestedBook.ClientProfileId),
                     RentDate = DateTime.Now,
-                    ReturnDate = DateTime.Now.AddDays(1),
-                    Penalty = 4
+                    ReturnDate = DateTime.Now.AddDays(period),
+                    Penalty = 4,
+                    ReadingRoom = readingRoom
                 };
                 _unitOfWork.RentedBookRepository.Create(rentedBook);
-                request.IsDeleted = true;
-                _unitOfWork.RequestRepository.Update(request);
-                var book = _unitOfWork.BookRepository.GetById(request.BookId);
+                requestedBook.IsDeleted = true;
+                _unitOfWork.RequestRepository.Update(requestedBook);
+                var book = _unitOfWork.BookRepository.GetById(requestedBook.BookId);
                 book.Quantity -= 1;
                 _unitOfWork.BookRepository.Update(book);
+                log.Info($"User [{requestedBook.ClientName}] got book [{requestedBook.BookName}]");
             }
+            log.Error($"Request [{id}] not found");
         }
     }
 }

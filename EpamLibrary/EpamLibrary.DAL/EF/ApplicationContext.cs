@@ -1,7 +1,6 @@
 ﻿using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using EpamLibrary.DAL.Entities;
-using EpamLibrary.Tables.Models;
 
 namespace EpamLibrary.DAL.EF
 {

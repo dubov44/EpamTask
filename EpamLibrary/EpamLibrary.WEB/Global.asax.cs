@@ -14,6 +14,7 @@ namespace EpamLibrary.WEB
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

@@ -1,14 +1,17 @@
-﻿using EpamLibrary.Tables.Models;
-using System;
+﻿using EpamLibrary.BLL.DTO;
+using EpamLibrary.BLL.Infrastructure;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EpamLibrary.BLL.Interfaces
 {
+    /// <summary>
+    /// operations with rented books
+    /// </summary>
     public interface IRentedBookService
     {
-        IEnumerable<RentedBook> GetAllRentedBooks(string userId);
+        IEnumerable<RentedBookDTO> GetAllRentedBooks(string userId);
+        void UpdateRent(string userId);
+        int GetUserDebt(string userId);
+        OperationDetails Remove(int rentedBookId);
     }
 }

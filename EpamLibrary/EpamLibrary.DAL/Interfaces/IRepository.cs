@@ -11,6 +11,6 @@ namespace EpamLibrary.DAL.Interfaces
         T GetById(int id);
         void Create(T item);
         void Update(T item);
-        //void Delete(int id);
+        void Delete(int id);
     }
 }

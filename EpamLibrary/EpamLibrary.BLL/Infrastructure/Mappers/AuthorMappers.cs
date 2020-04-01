@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using EpamLibrary.BLL.DTO;
-using EpamLibrary.Tables.Models;
-using System;
+using EpamLibrary.DAL.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EpamLibrary.BLL.Infrastructure.Mappers
 {
+    /// <summary>
+    /// to interact with authors
+    /// </summary>
     public static class AuthorMappers
     {
         public static AuthorDTO ToDTO(this Author model)

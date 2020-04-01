@@ -8,19 +8,24 @@ using EpamLibrary.BLL.Interfaces;
 using EpamLibrary.DAL.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using EpamLibrary.Tables.Models;
+using EpamLibrary.BLL.Infrastructure.Mappers;
+using NLog;
 
 namespace EpamLibrary.BLL.Services
 {
     public class UserService : IUserService
     {
         private readonly IUnitOfWork _unitOfWork;
+        Logger log = LogManager.GetCurrentClassLogger();
 
         public UserService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
+        /// <summary>
+        /// creates new user
+        /// </summary>
         public async Task<OperationDetails> Create(UserDTO userDto)
         {
             ApplicationUser user = await _unitOfWork.UserManager.FindByEmailAsync(userDto.Email);
@@ -30,44 +35,87 @@ namespace EpamLibrary.BLL.Services
                 var result = await _unitOfWork.UserManager.CreateAsync(user, userDto.Password);
                 if (result.Errors.Count() > 0)
                     return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
-                // добавляем роль
                 await _unitOfWork.UserManager.AddToRoleAsync(user.Id, userDto.Role);
-                // создаем профиль клиента
                 ClientProfile clientProfile = new ClientProfile { ClientProfileId = user.Id, Name = userDto.Name, Email = userDto.Email };
                 _unitOfWork.ClientManager.Create(clientProfile);
                 await _unitOfWork.SaveAsync();
+                log.Info($"user [{userDto.Name}] was created");
                 return new OperationDetails(true, "Регистрация успешно пройдена", "");
             }
             return new OperationDetails(false, "Пользователь с таким логином уже существует", "Email");
         }
 
+        /// <summary>
+        /// authenticates current user
+        /// </summary>
         public async Task<ClaimsIdentity> Authenticate(UserDTO userDto)
         {
             ClaimsIdentity claim = null;
-            // находим пользователя
             ApplicationUser user = await _unitOfWork.UserManager.FindAsync(userDto.Email, userDto.Password);
-            // авторизуем его и возвращаем объект ClaimsIdentity
             if (user != null)
                 claim = await _unitOfWork.UserManager.CreateIdentityAsync(user,
                                             DefaultAuthenticationTypes.ApplicationCookie);
             return claim;
         }
 
-        // начальная инициализация бд
-        public async Task SetInitialData(UserDTO adminDto, List<string> roles)
+        /// <summary>
+        /// returns list of users with selected role
+        /// or just returs all users
+        /// </summary>
+        public IEnumerable<UserDTO> GetUsersByRole(string roleName = null)
         {
-            foreach (string roleName in roles)
-            {
-                var role = await _unitOfWork.RoleManager.FindByNameAsync(roleName);
-                if (role == null)
+            if (roleName == null)
+                return _unitOfWork.UserManager.Users.ToDTO();
+            var role = _unitOfWork.RoleManager.FindByName(roleName);
+            var users = _unitOfWork.UserManager.Users.Where(u => u.Roles.Any(r => r.RoleId == role.Id)).ToDTO();
+            if (users.Count() > 0)
+                foreach (var user in users)
                 {
-                    role = new ApplicationRole { Name = roleName };
-                    await _unitOfWork.RoleManager.CreateAsync(role);
+                    user.Role = roleName;
                 }
-            }
-            await Create(adminDto);
+            return users;
         }
 
+        /// <summary>
+        /// changes selected user's role to new role
+        /// </summary>
+        public OperationDetails AddToRole(string userName, string roleName)
+        {
+            var user = _unitOfWork.UserManager.FindByName(userName);
+            var role = _unitOfWork.RoleManager.FindByName(roleName);
+            if (role == null)
+                return new OperationDetails(false, $"Role {roleName} does not exist", "");
+            if (user == null)
+                return new OperationDetails(false, $"User {userName} does not exist", "");
+
+            if (_unitOfWork.UserManager.IsInRole(user.Id, roleName))
+                return new OperationDetails(false, $"User {userName} is already {roleName}", "");
+
+            user.Roles.Clear();
+
+            if (_unitOfWork.UserManager.AddToRole(user.Id, roleName).Succeeded)
+            {
+                _unitOfWork.Save();
+                log.Info($"User [{userName}] has been promoted to [{roleName}]");
+                return new OperationDetails(true, $"User {userName} is now {roleName}", "");
+            }
+
+            return new OperationDetails(false, "ERROR", "");
+        }
+        public string GetUserRole(string userId)
+        {
+            var user = _unitOfWork.UserManager.FindById(userId);
+            var roles = _unitOfWork.RoleManager.Roles.ToList();
+
+            foreach(var role in roles)
+            {
+                if(_unitOfWork.UserManager.IsInRole(user.Id, role.Name))
+                {
+                    return role.Name;
+                }
+            }
+            return "error";
+        }
         public void Dispose()
         {
             _unitOfWork.Dispose();
