@@ -23,9 +23,6 @@ namespace EpamLibrary.BLL.Services
             _unitOfWork = unitOfWork;
         }
 
-        /// <summary>
-        /// creates new user
-        /// </summary>
         public async Task<OperationDetails> Create(UserDTO userDto)
         {
             ApplicationUser user = await _unitOfWork.UserManager.FindByEmailAsync(userDto.Email);
@@ -45,9 +42,6 @@ namespace EpamLibrary.BLL.Services
             return new OperationDetails(false, "Пользователь с таким логином уже существует", "Email");
         }
 
-        /// <summary>
-        /// authenticates current user
-        /// </summary>
         public async Task<ClaimsIdentity> Authenticate(UserDTO userDto)
         {
             ClaimsIdentity claim = null;
@@ -58,10 +52,6 @@ namespace EpamLibrary.BLL.Services
             return claim;
         }
 
-        /// <summary>
-        /// returns list of users with selected role
-        /// or just returs all users
-        /// </summary>
         public IEnumerable<UserDTO> GetUsersByRole(string roleName = null)
         {
             if (roleName == null)
@@ -76,9 +66,6 @@ namespace EpamLibrary.BLL.Services
             return users;
         }
 
-        /// <summary>
-        /// changes selected user's role to new role
-        /// </summary>
         public OperationDetails AddToRole(string userName, string roleName)
         {
             var user = _unitOfWork.UserManager.FindByName(userName);

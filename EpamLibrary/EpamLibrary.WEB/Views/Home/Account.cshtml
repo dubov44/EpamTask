@@ -35,17 +35,17 @@
                 {
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100">
-                            <a href="@Url.Action("Details", "Book", new { id = book.Id })"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                            <a href="@Url.Action("Details", "Book", new { id = book.BookId })"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                             <div class="card-body">
                                 <h4 class="card-title">
                                     @if (book.IsExpired == true)
                                     {
-                                        <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="alert-danger">@book.Name</a>
+                                        <a href="@Url.Action("Details", "Book", new { id = book.BookId })" class="alert-danger">@book.Name</a>
                                         <b>(@book.Debt)</b>
                                     }
                                     else
                                     {
-                                        <a href="@Url.Action("Details", "Book", new { id = book.Id })">@book.Name</a>
+                                        <a href="@Url.Action("Details", "Book", new { id = book.BookId })">@book.Name</a>
                                     }
                                 </h4>
                                 <h5>$@book.Penalty</h5>
@@ -83,7 +83,7 @@
                         {
                             <tr>
                                 <td>@request.BookName</td>
-                                <td>Vaiting for confirmarion</td>
+                                <td>Waiting for confirmarion</td>
                             </tr>
                         }
                     }

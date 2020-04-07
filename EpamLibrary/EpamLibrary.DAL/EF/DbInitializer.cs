@@ -49,25 +49,25 @@ namespace EpamLibrary.DAL.EF
                 context.ClientProfiles.Add(userProfile);
             }
 
-            var genre1 = new Genre() { Name = "Action" };
-            var genre2 = new Genre() { Name = "Adventure" };
-            var genre3 = new Genre() { Name = "Comedy" };
-            var genre4 = new Genre() { Name = "Drama" };
-            var genre5 = new Genre() { Name = "Romance" };
-            var genre6 = new Genre() { Name = "Fantasy" };
-            var genre7 = new Genre() { Name = "Martial arts" };
-            var genre8 = new Genre() { Name = "Tragedy" };
-            var genre9 = new Genre() { Name = "Supernatural" };
-            var genre10 = new Genre() { Name = "Mystery" };
-            var genre11 = new Genre() { Name = "Psychological" };
-            var genre12 = new Genre() { Name = "Sci fi" };
+            var genre1 = new Genre() { Name = "action" };
+            var genre2 = new Genre() { Name = "adventure" };
+            var genre3 = new Genre() { Name = "comedy" };
+            var genre4 = new Genre() { Name = "drama" };
+            var genre5 = new Genre() { Name = "romance" };
+            var genre6 = new Genre() { Name = "fantasy" };
+            var genre7 = new Genre() { Name = "martial arts" };
+            var genre8 = new Genre() { Name = "tragedy" };
+            var genre9 = new Genre() { Name = "supernatural" };
+            var genre10 = new Genre() { Name = "mystery" };
+            var genre11 = new Genre() { Name = "psychological" };
+            var genre12 = new Genre() { Name = "sci fi" };
 
-            var author1 = new Author() { Name = "Decaspell" };
-            var author2 = new Author() { Name = "Miro" };
-            var author3 = new Author() { Name = "Mad Snail" };
-            var author4 = new Author() { Name = "Chaos" };
-            var author5 = new Author() { Name = "One" };
-            var author6 = new Author() { Name = "Tabata Yuuki" };
+            var author1 = new Author() { Name = "decaspell" };
+            var author2 = new Author() { Name = "miro" };
+            var author3 = new Author() { Name = "mad snail" };
+            var author4 = new Author() { Name = "chaos" };
+            var author5 = new Author() { Name = "one" };
+            var author6 = new Author() { Name = "tabata yuuki" };
 
             var publisher1 = new Publisher() { Name = "manganelo" };
             var publisher2 = new Publisher() { Name = "mangakakalot" };

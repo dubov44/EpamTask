@@ -127,6 +127,7 @@
     <Compile Include="Infrastructure\Mappers\RequestMappers.cs" />
     <Compile Include="Infrastructure\Mappers\UserMappers.cs" />
     <Compile Include="Infrastructure\OperationDetails.cs" />
+    <Compile Include="Infrastructure\StringChanger.cs" />
     <Compile Include="Interfaces\IBookService.cs" />
     <Compile Include="Interfaces\IRentedBookService.cs" />
     <Compile Include="Interfaces\IRequestService.cs" />

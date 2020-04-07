@@ -1,0 +1,3 @@
+2020-04-02 17:37:36.3102 | INFO | EpamLibrary.BLL.Services.RequestService.RequestBook | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Onepunch-Man]
+2020-04-02 17:38:53.4506 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | EpamLibrary.BLL.Services.BookService | book Black Clover was edited
+2020-04-02 17:42:43.8924 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | EpamLibrary.BLL.Services.BookService | book Black Clover was edited

@@ -18,6 +18,7 @@ namespace EpamLibrary.WEB.Infrastructure.Automapper
 {
     public static class ViewModelMappersProfile
     {
+        #region BookDTO -> BookEditModel
         public static BookEditModel ToEditModel(this BookDTO model)
         {
             return new MapperConfiguration(cfg =>
@@ -35,6 +36,9 @@ namespace EpamLibrary.WEB.Infrastructure.Automapper
                 .CreateMapper()
                 .Map<BookDTO, BookEditModel>(model);
         }
+        #endregion
+
+        #region BookEditModel -> BookDTO
         public static BookDTO ToDTO(this BookEditModel model)
         {
             return new MapperConfiguration(cfg =>
@@ -53,6 +57,9 @@ namespace EpamLibrary.WEB.Infrastructure.Automapper
                 .CreateMapper()
                 .Map<BookEditModel, BookDTO>(model);
         }
+        #endregion
+
+        #region BookDTO -> BookViewModel
         public static BookViewModel ToDisplayVM(this BookDTO model)
         {
             return new MapperConfiguration(cfg =>
@@ -72,11 +79,16 @@ namespace EpamLibrary.WEB.Infrastructure.Automapper
                 .CreateMapper()
                 .Map<BookDTO, BookViewModel>(model);
         }
+        #endregion
+
+        #region IEnumerable<BookDTO> -> IEnumerable<BookViewModel>
         public static IEnumerable<BookViewModel> ToDisplayVM(this IEnumerable<BookDTO> models)
         {
             return models.Select(x => x.ToDisplayVM());
         }
+        #endregion
 
+        #region AuthorDTO -> AuthorViewModel
         public static AuthorViewModel ToDisplayVM(this AuthorDTO model)
         {
             return new MapperConfiguration(cfg =>
@@ -88,11 +100,16 @@ namespace EpamLibrary.WEB.Infrastructure.Automapper
                 .CreateMapper()
                 .Map<AuthorDTO, AuthorViewModel>(model);
         }
+        #endregion
+
+        #region IEnumerable<AuthorDTO> -> IEnumerable<AuthorViewModel>
         public static IEnumerable<AuthorViewModel> ToDisplayVM(this IEnumerable<AuthorDTO> models)
         {
             return models.Select(x => x.ToDisplayVM());
         }
+        #endregion
 
+        #region PublisherDTO -> PublisherViewModel
         public static PublisherViewModel ToDisplayVM(this PublisherDTO model)
         {
             return new MapperConfiguration(cfg =>
@@ -104,10 +121,16 @@ namespace EpamLibrary.WEB.Infrastructure.Automapper
                 .CreateMapper()
                 .Map<PublisherDTO, PublisherViewModel>(model);
         }
+        #endregion
+
+        #region IEnumerable<PublisherDTO> -> IEnumerable<PublisherViewModel>
         public static IEnumerable<PublisherViewModel> ToDisplayVM(this IEnumerable<PublisherDTO> models)
         {
             return models.Select(x => x.ToDisplayVM());
         }
+        #endregion
+
+        #region GenreDTO -> GenreViewModel
         public static GenreViewModel ToDisplayVM(this GenreDTO model)
         {
             return new MapperConfiguration(cfg =>
@@ -119,10 +142,16 @@ namespace EpamLibrary.WEB.Infrastructure.Automapper
                 .CreateMapper()
                 .Map<GenreDTO, GenreViewModel>(model);
         }
+        #endregion
+
+        #region IEnumerable<GenreDTO> -> IEnumerable<GenreViewModel>
         public static IEnumerable<GenreViewModel> ToDisplayVM(this IEnumerable<GenreDTO> models)
         {
             return models.Select(x => x.ToDisplayVM());
         }
+        #endregion
+
+        #region RentedBookDTO -> RentedBookViewModel
         public static RentedBookViewModel ToDisplayVM(this RentedBookDTO model)
         {
             return new MapperConfiguration(cfg =>
@@ -141,10 +170,16 @@ namespace EpamLibrary.WEB.Infrastructure.Automapper
                 .CreateMapper()
                 .Map<RentedBookDTO, RentedBookViewModel>(model);
         }
+        #endregion
+
+        #region IEnumerable<RentedBookDTO> -> IEnumerable<RentedBookViewModel>
         public static IEnumerable<RentedBookViewModel> ToDisplayVM(this IEnumerable<RentedBookDTO> models)
         {
             return models.Select(x => x.ToDisplayVM());
         }
+        #endregion
+
+        #region RequestDTO -> RequestViewModel
         public static RequestViewModel ToDisplayVM(this RequestDTO model)
         {
             return new MapperConfiguration(cfg =>
@@ -160,11 +195,16 @@ namespace EpamLibrary.WEB.Infrastructure.Automapper
                 .CreateMapper()
                 .Map<RequestDTO, RequestViewModel>(model);
         }
+        #endregion
+
+        #region IEnumerable<RequestDTO> -> IEnumerable<RequestViewModel>
         public static IEnumerable<RequestViewModel> ToDisplayVM(this IEnumerable<RequestDTO> models)
         {
             return models.Select(x => x.ToDisplayVM());
         }
+        #endregion
 
+        #region UserDTO -> UserViewModel
         public static UserViewModel ToDisplayVM(this UserDTO model)
         {
             return new MapperConfiguration(cfg =>
@@ -178,11 +218,16 @@ namespace EpamLibrary.WEB.Infrastructure.Automapper
                 .CreateMapper()
                 .Map<UserDTO, UserViewModel>(model);
         }
+        #endregion
+
+        #region IEnumerable<UserDTO> -> IEnumerable<UserViewModel>
         public static IEnumerable<UserViewModel> ToDisplayVM(this IEnumerable<UserDTO> models)
         {
             return models.Select(x => x.ToDisplayVM());
         }
+        #endregion
 
+        #region OperationDetails -> OperationDetailsViewModel
         public static OperationDetailsViewModel ToDisplayVM(this OperationDetails model)
         {
             return new MapperConfiguration(cfg =>
@@ -194,5 +239,6 @@ namespace EpamLibrary.WEB.Infrastructure.Automapper
                 .CreateMapper()
                 .Map<OperationDetails, OperationDetailsViewModel>(model);
         }
+        #endregion
     }
 }

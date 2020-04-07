@@ -29,6 +29,9 @@ namespace EpamLibrary.WEB.Controllers
         }
         public ActionResult All(int page = 1, string search = null, DateTime? start = null, DateTime? end = null)
         {
+            Session["search"] = search;
+            Session["start"] = start;
+            Session["end"] = end;
             var pager = new Pager(_bookService.GetAllBooks(search, start, end).Count(), page, 6, 3);
             var books = new IndexViewModel<BookViewModel>()
             {
@@ -153,7 +156,7 @@ namespace EpamLibrary.WEB.Controllers
                     model.ImagePath = "/Content/images/" + Image.FileName;
                 }
                 _bookService.EditBook(model.ToDTO());
-                return RedirectToAction("All", "Book");
+                return RedirectToAction("Details", "Book",new { id = model.Id });
             }
             return View(model);
         }

@@ -19,9 +19,6 @@ namespace EpamLibrary.BLL.Services
             _unitOfWork = unitOfWork;
         }
 
-        /// <summary>
-        /// returns all rented books from current user
-        /// </summary>
         public IEnumerable<RentedBookDTO> GetAllRentedBooks(string userId)
         {
             var rentedBooks = _unitOfWork.RentedBookRepository.Get(b => b.ClientProfileId == userId).OrderByDescending(b => b.Id).ToDTO();
@@ -29,9 +26,6 @@ namespace EpamLibrary.BLL.Services
             return rentedBooks;
         }
 
-        /// <summary>
-        /// checks which books is 'expired' and deletes all books from reading room
-        /// </summary>
         public void UpdateRent(string userId)
         {
             var user = _unitOfWork.ClientManager.GetById(userId);
@@ -51,9 +45,6 @@ namespace EpamLibrary.BLL.Services
             _unitOfWork.ClientManager.Update(user);
         }
 
-        /// <summary>
-        /// returns current user's debt
-        /// </summary>
         public int GetUserDebt(string userId)
         {
             return _unitOfWork.ClientManager.GetById(userId).Debt;

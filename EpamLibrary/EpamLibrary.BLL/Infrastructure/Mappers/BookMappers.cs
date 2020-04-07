@@ -23,9 +23,9 @@ namespace EpamLibrary.BLL.Infrastructure.Mappers
                 .ForMember("Quantity", opt => opt.MapFrom(x => x.Quantity))
                 .ForMember("Discription", opt => opt.MapFrom(x => x.Discription))
                 .ForMember("PublicationDate", opt => opt.MapFrom(x => x.PublicationDate))
-                .ForMember("Authors", opt => opt.MapFrom(x => x.Authors.Select(sel => sel.Name).ToList()))
-                .ForMember("Genres", opt => opt.MapFrom(x => x.Genres.Select(sel => sel.Name).ToList()))
-                .ForMember("Publisher", opt => opt.MapFrom(x => x.Publisher.Name));
+                .ForMember("Authors", opt => opt.MapFrom(x => x.Authors.Select(sel => StringChanger.CapitalizeAllWords(sel.Name)).ToList()))
+                .ForMember("Genres", opt => opt.MapFrom(x => x.Genres.Select(sel => StringChanger.CapitalizeAllWords(sel.Name)).ToList()))
+                .ForMember("Publisher", opt => opt.MapFrom(x => StringChanger.CapitalizeAllWords(x.Publisher.Name)));
             })
                 .CreateMapper()
                 .Map<Book, BookDTO>(model);
@@ -39,7 +39,7 @@ namespace EpamLibrary.BLL.Infrastructure.Mappers
         {
             return new MapperConfiguration(cfg =>
             {
-            cfg.CreateMap<string, Genre>().ForMember(t => t.Name, opt => opt.MapFrom(s => s));
+            cfg.CreateMap<string, Genre>().ForMember(t => t.Name, opt => opt.MapFrom(s => s.Trim().ToLower()));
             })
                 .CreateMapper()
                 .Map<string, Genre>(model);
@@ -52,7 +52,7 @@ namespace EpamLibrary.BLL.Infrastructure.Mappers
         {
             return new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<string, Author>().ForMember(t => t.Name, opt => opt.MapFrom(s => s));
+                cfg.CreateMap<string, Author>().ForMember(t => t.Name, opt => opt.MapFrom(s => s.Trim().ToLower()));
             })
                 .CreateMapper()
                 .Map<string, Author>(model);
@@ -65,7 +65,7 @@ namespace EpamLibrary.BLL.Infrastructure.Mappers
         {
             return new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<string, Publisher>().ForMember(t => t.Name, opt => opt.MapFrom(s => s));
+                cfg.CreateMap<string, Publisher>().ForMember(t => t.Name, opt => opt.MapFrom(s => s.Trim().ToLower()));
             })
                 .CreateMapper()
                 .Map<string, Publisher>(model);

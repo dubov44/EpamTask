@@ -3,6 +3,7 @@ using EpamLibrary.BLL.Interfaces;
 using EpamLibrary.WEB.Infrastructure.Automapper;
 using EpamLibrary.WEB.Models;
 using EpamLibrary.WEB.Models.UserVM;
+using System;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -24,19 +25,28 @@ namespace EpamLibrary.WEB.Controllers
         }
         public ActionResult UpdradeToLibrarian(string name)
         {
-            TempData["details"] = _userService.AddToRole(name, "librarian").ToDisplayVM();
+            if (User.Identity.Name == name)
+                TempData["details"] = new OperationDetailsViewModel() { Succedeed = false, Message = "You shouldn't change your own roles." };
+            else
+                TempData["details"] = _userService.AddToRole(name, "librarian").ToDisplayVM();
             TempData.Keep("details");
             return RedirectToAction("UserManagment");
         }
         public ActionResult UpdradeToUser(string name)
         {
-            TempData["details"] = _userService.AddToRole(name, "user").ToDisplayVM();
+            if (User.Identity.Name == name)
+                TempData["details"] = new OperationDetailsViewModel() { Succedeed = false, Message = "You shouldn't change your own roles." };
+            else
+                TempData["details"] = _userService.AddToRole(name, "user").ToDisplayVM();
             TempData.Keep("details");
             return RedirectToAction("UserManagment");
         }
         public ActionResult BanUser(string name)
         {
-            TempData["details"] = _userService.AddToRole(name, "banned").ToDisplayVM();
+            if (User.Identity.Name == name)
+                TempData["details"] = new OperationDetailsViewModel() { Succedeed = false, Message = "You shouldn't change your own roles." };
+            else
+                TempData["details"] = _userService.AddToRole(name, "banned").ToDisplayVM();
             TempData.Keep("details");
             return RedirectToAction("UserManagment");
         }
@@ -51,6 +61,14 @@ namespace EpamLibrary.WEB.Controllers
                 Users = _userService.GetUsersByRole("user").ToDisplayVM(), //users
                 Banned = _userService.GetUsersByRole("banned").ToDisplayVM() //users
             });
+        }
+        public FileResult GetTodayLog()
+        {
+            var date = DateTime.Now.ToString("yyyy-MM-dd");
+            string file_path = Server.MapPath($"~/logs/{date}.log");
+            string file_type = "application/log";
+            string file_name = $"{date}.log";
+            return File(file_path, file_type, file_name);
         }
     }
 }

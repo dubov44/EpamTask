@@ -21,25 +21,16 @@ namespace EpamLibrary.BLL.Services
             _unitOfWork = unitOfWork;
         }
 
-        /// <summary>
-        /// returns all requests
-        /// </summary>
         public IEnumerable<RequestDTO> GetAllRequests()
         {
             return _unitOfWork.RequestRepository.Get().OrderByDescending(b => b.Id).ToDTO();
         }
 
-        /// <summary>
-        /// returns request by id
-        /// </summary>
         public RequestDTO GetRequestById(int id)
         {
             return _unitOfWork.RequestRepository.GetById(id).ToDTO();
         }
 
-        /// <summary>
-        /// creates request for selected book from current user
-        /// </summary>
         public OperationDetails RequestBook(int bookId, string userId)
         {
             var book = _unitOfWork.BookRepository.GetById(bookId);
@@ -54,7 +45,7 @@ namespace EpamLibrary.BLL.Services
                     return new OperationDetails(false, "User not found", "");
                 }
                 if(_unitOfWork.RequestRepository.Get(r => r.ClientProfileId == userId && r.BookId == bookId && r.IsDeleted == false).Any())
-                    return new OperationDetails(false, "You had already requested this book \n Please, wait for librarian to confirm your request", "");
+                    return new OperationDetails(false, "You have already requested this book \n Please, wait for librarian to confirm your request", "");
                 if (_unitOfWork.RentedBookRepository.Get(b => b.ClientProfileId == userId && b.BookId == bookId && b.IsDeleted == false).Any())
                     return new OperationDetails(false, "You already have this book on your account \nYou must return it before getting the same one", "");
                 var request = new Request() {Book = book,
@@ -71,9 +62,6 @@ namespace EpamLibrary.BLL.Services
             return new OperationDetails(false, "Book not found", "");
         }
 
-        /// <summary>
-        /// creates requested book and adds it to user on selected period
-        /// </summary>
         public void ConfirmRequest(int id, int period, bool readingRoom = false)
         {
             var requestedBook = _unitOfWork.RequestRepository.GetById(id);

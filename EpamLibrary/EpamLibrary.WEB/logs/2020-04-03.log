@@ -1,0 +1,3 @@
+2020-04-03 15:12:12.7291 | INFO | EpamLibrary.BLL.Services.RequestService.RequestBook | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Black Clover]
+2020-04-03 15:13:32.3654 | INFO | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Black Clover]
+2020-04-03 15:13:32.3654 | ERROR | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | EpamLibrary.BLL.Services.RequestService | Request [1] not found

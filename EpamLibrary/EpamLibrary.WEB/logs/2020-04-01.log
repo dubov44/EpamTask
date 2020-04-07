@@ -54,3 +54,9 @@
 2020-04-01 16:21:39.1939 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [A Returner's Magic Should Be Special]
 2020-04-01 16:22:01.0747 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [A Returner's Magic Should Be Special]
 2020-04-01 16:22:01.0747 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [2] not found
+2020-04-01 19:50:38.9788 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Black Clover]
+2020-04-01 19:50:47.3436 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [A Returner's Magic Should Be Special]
+2020-04-01 19:50:52.5674 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [A Returner's Magic Should Be Special]
+2020-04-01 19:50:52.5674 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [2] not found
+2020-04-01 19:50:53.8986 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Black Clover]
+2020-04-01 19:50:53.8986 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [1] not found

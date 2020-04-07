@@ -1,0 +1,64 @@
+2020-04-01 11:13:09.4300 | ERROR | EpamLibrary.WEB.Controllers.HomeController | error message
+2020-04-01 11:13:09.4300 | FATAL | EpamLibrary.WEB.Controllers.HomeController | fatal message
+2020-04-01 11:13:46.5138 | TRACE | EpamLibrary.WEB.Controllers.BookController | trace message
+2020-04-01 11:13:46.5148 | DEBUG | EpamLibrary.WEB.Controllers.BookController | debug message
+2020-04-01 11:14:03.4090 | TRACE | EpamLibrary.WEB.Controllers.BookController | trace message
+2020-04-01 11:14:03.4090 | DEBUG | EpamLibrary.WEB.Controllers.BookController | debug message
+2020-04-01 11:16:14.9861 | TRACE | EpamLibrary.WEB.Controllers.HomeController | trace message
+2020-04-01 11:16:15.0191 | DEBUG | EpamLibrary.WEB.Controllers.HomeController | debug message
+2020-04-01 11:16:15.0191 | INFO | EpamLibrary.WEB.Controllers.HomeController | info message
+2020-04-01 11:16:15.0191 | WARN | EpamLibrary.WEB.Controllers.HomeController | warn message
+2020-04-01 11:16:15.0191 | ERROR | EpamLibrary.WEB.Controllers.HomeController | error message
+2020-04-01 11:16:15.0191 | FATAL | EpamLibrary.WEB.Controllers.HomeController | fatal message
+2020-04-01 11:37:01.0589 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Black Clover]
+2020-04-01 11:37:11.7352 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Star Martial God Technique]
+2020-04-01 11:37:11.7352 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [4] not found
+2020-04-01 11:37:13.3506 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Black Clover]
+2020-04-01 11:37:13.3506 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [6] not found
+2020-04-01 11:41:16.3272 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Soul Land]
+2020-04-01 11:41:23.2119 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Soul Land]
+2020-04-01 11:41:23.2119 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [7] not found
+2020-04-01 12:20:06.5875 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Black Clover]
+2020-04-01 12:20:29.2952 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Black Clover]
+2020-04-01 12:20:29.2962 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [8] not found
+2020-04-01 12:30:36.5247 | INFO | EpamLibrary.BLL.Services.UserService | user [weqwe was] created
+2020-04-01 12:31:58.1054 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Onepunch-Man]
+2020-04-01 12:32:22.7049 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Onepunch-Man]
+2020-04-01 12:32:22.7049 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [9] not found
+2020-04-01 12:40:08.4120 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Black Clover]
+2020-04-01 12:40:27.0052 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Black Clover]
+2020-04-01 12:40:27.0052 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [10] not found
+2020-04-01 12:43:18.5107 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [A Returner's Magic Should Be Special]
+2020-04-01 12:43:31.0899 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [A Returner's Magic Should Be Special]
+2020-04-01 12:43:31.0899 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [11] not found
+2020-04-01 12:49:05.5276 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Onepunch-Man]
+2020-04-01 12:49:22.1977 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Onepunch-Man]
+2020-04-01 12:49:22.1977 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [12] not found
+2020-04-01 14:25:30.4019 | INFO | EpamLibrary.BLL.Services.UserService | user [qwqwqw] was created
+2020-04-01 14:27:12.8066 | INFO | EpamLibrary.BLL.Services.UserService | user [qwqwqw] was created
+2020-04-01 14:30:34.1907 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Black Clover]
+2020-04-01 14:49:19.3216 | INFO | EpamLibrary.BLL.Services.BookService | book Black Clover was edited
+2020-04-01 14:51:33.4762 | INFO | EpamLibrary.BLL.Services.BookService | book new was created
+2020-04-01 14:51:48.0452 | INFO | EpamLibrary.BLL.Services.BookService | book new was edited
+2020-04-01 14:56:24.7315 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [I Am The Sorcerer King]
+2020-04-01 15:01:55.9051 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [I Am The Sorcerer King]
+2020-04-01 15:01:55.9051 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [14] not found
+2020-04-01 15:02:16.3685 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Black Clover]
+2020-04-01 15:02:16.3685 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [13] not found
+2020-04-01 15:55:26.5577 | INFO | EpamLibrary.BLL.Services.UserService | User [ttrianon12@gmail.com] has been promoted to [banned]
+2020-04-01 15:59:28.0099 | INFO | EpamLibrary.BLL.Services.UserService | User [ttrianon12@gmail.com] has been promoted to [user]
+2020-04-01 15:59:30.6577 | INFO | EpamLibrary.BLL.Services.UserService | User [ttrianon12@gmail.com] has been promoted to [librarian]
+2020-04-01 15:59:32.9601 | INFO | EpamLibrary.BLL.Services.UserService | User [ttrianon12@gmail.com] has been promoted to [banned]
+2020-04-01 15:59:34.6990 | INFO | EpamLibrary.BLL.Services.UserService | User [ttrianon12@gmail.com] has been promoted to [user]
+2020-04-01 16:21:12.1589 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Black Clover]
+2020-04-01 16:21:39.1939 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [A Returner's Magic Should Be Special]
+2020-04-01 16:22:01.0747 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [A Returner's Magic Should Be Special]
+2020-04-01 16:22:01.0747 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [2] not found
+2020-04-01 19:50:38.9788 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Black Clover]
+2020-04-01 19:50:47.3436 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [A Returner's Magic Should Be Special]
+2020-04-01 19:50:52.5674 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [A Returner's Magic Should Be Special]
+2020-04-01 19:50:52.5674 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [2] not found
+2020-04-01 19:50:53.8986 | INFO | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Black Clover]
+2020-04-01 19:50:53.8986 | ERROR | EpamLibrary.BLL.Services.RequestService | Request [1] not found
+2020-04-07 19:27:06.3005 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | EpamLibrary.BLL.Services.BookService | book Black Clover was edited
+2020-04-07 19:27:53.9619 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | EpamLibrary.BLL.Services.BookService | book Black Clover was edited
