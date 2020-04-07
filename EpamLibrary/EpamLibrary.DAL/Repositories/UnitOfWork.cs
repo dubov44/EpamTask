@@ -63,6 +63,9 @@ namespace EpamLibrary.DAL.Repositories
                     AuthorRepository.Dispose();
                     BookRepository.Dispose();
                     GenreRepository.Dispose();
+                    RequestRepository.Dispose();
+                    RentedBookRepository.Dispose();
+                    PublisherRepository.Dispose();
                 }
                 this.disposed = true;
             }

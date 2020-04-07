@@ -55,7 +55,7 @@ namespace EpamLibrary.BLL.Services
 
         public IEnumerable<AuthorDTO> GetAllAuthors()
         {
-            return _unitOfWork.AuthorRepository.Get().OrderBy(b => b.Name).ToDTO();
+            return _unitOfWork.AuthorRepository.Get(a => a.Books.Count > 0).OrderBy(b => b.Name).ToDTO();
         }
 
         public IEnumerable<BookDTO> GetSpecificAuthorBooks(string name)
@@ -65,7 +65,7 @@ namespace EpamLibrary.BLL.Services
 
         public IEnumerable<PublisherDTO> GetAllPublishers()
         {
-            return _unitOfWork.PublisherRepository.Get().OrderBy(b => b.Name).ToDTO();
+            return _unitOfWork.PublisherRepository.Get(p => p.Books.Count > 0).OrderBy(b => b.Name).ToDTO();
         }
 
         public IEnumerable<BookDTO> GetSpecificPublisherBooks(string name)
@@ -75,7 +75,7 @@ namespace EpamLibrary.BLL.Services
 
         public IEnumerable<GenreDTO> GetAllGenres()
         {
-            return _unitOfWork.GenreRepository.Get().OrderBy(b => b.Name).ToDTO();
+            return _unitOfWork.GenreRepository.Get(g => g.Books.Count > 0).OrderBy(b => b.Name).ToDTO();
         }
 
         public IEnumerable<BookDTO> GetSpecificGenreBooks(string name)
