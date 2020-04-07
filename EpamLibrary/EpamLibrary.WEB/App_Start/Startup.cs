@@ -23,50 +23,11 @@ namespace EpamLibrary.App_Start
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login"),
             });
-
-            //app.UseNinjectMiddleware(CreateKernel);
         }
 
         private IUserService CreateUserService()
         {
             return serviceCreator.CreateUserService("DefaultConnection");
         }
-        //private static StandardKernel CreateKernel()
-        //{
-        //    var kernel = new StandardKernel(new NinjectRegistrations());
-
-        //    kernel.Bind<IUserService>().To<UserService>();
-        //    kernel.Bind<IBookService>().To<BookService>();
-
-        //    return kernel;
-        //}
     }
-    ////IServiceCreator serviceCreator = new ServiceCreator();
-    //public void Configuration(IAppBuilder app)
-    //    {
-    //        //app.CreatePerOwinContext<IUserService>(CreateUserService);
-    //        app.UseCookieAuthentication(new CookieAuthenticationOptions
-    //        {
-    //            AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-    //            LoginPath = new PathString("/Account/Login"),
-    //        });
-
-    //        //app.UseNinjectMiddleware(CreateKernel);
-    //    }
-
-    //    //private IUserService CreateUserService()
-    //    //{
-    //    //    return serviceCreator.CreateUserService("DefaultConnection");
-    //    //}
-    //    //private static StandardKernel CreateKernel()
-    //    //{
-    //    //    var kernel = new StandardKernel(new UnitOfWorkModule());
-
-    //    //    kernel.Bind<IUserService>().To<UserService>();
-    //    //    kernel.Bind<IServiceCreator>().To<ServiceCreator>();
-    //    //    kernel.Bind<IBookService>().To<BookService>();
-
-    //    //    return kernel;
-    //    //}
-    //}
 }

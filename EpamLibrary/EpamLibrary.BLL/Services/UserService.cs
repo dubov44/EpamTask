@@ -37,9 +37,9 @@ namespace EpamLibrary.BLL.Services
                 _unitOfWork.ClientManager.Create(clientProfile);
                 await _unitOfWork.SaveAsync();
                 log.Info($"user [{userDto.Name}] was created");
-                return new OperationDetails(true, "Регистрация успешно пройдена", "");
+                return new OperationDetails(true, "Register successfull", "");
             }
-            return new OperationDetails(false, "Пользователь с таким логином уже существует", "Email");
+            return new OperationDetails(false, "User with this email already exists", "Email");
         }
 
         public async Task<ClaimsIdentity> Authenticate(UserDTO userDto)

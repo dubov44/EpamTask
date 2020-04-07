@@ -16,7 +16,7 @@ namespace EpamLibrary.BLL.Infrastructure.Mappers
             return new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Publisher, PublisherDTO>()
-                .ForMember("Name", opt => opt.MapFrom(x => x.Name))
+                .ForMember("Name", opt => opt.MapFrom(x => StringChanger.CapitalizeAllWords(x.Name)))
                 .ForMember("BookQuantity", opt => opt.MapFrom(x => x.Books.Count));
             })
                 .CreateMapper()

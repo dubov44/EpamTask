@@ -46,7 +46,7 @@ namespace EpamLibrary.Controllers
                 ClaimsIdentity claim = await UserService.Authenticate(userDto);
                 if (claim == null)
                 {
-                    ModelState.AddModelError("", "Неверный логин или пароль.");
+                    ModelState.AddModelError("", "Wrong username or password.");
                 }
                 else
                 {

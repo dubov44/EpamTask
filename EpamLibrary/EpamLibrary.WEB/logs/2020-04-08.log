@@ -1,0 +1,13 @@
+2020-04-08 01:29:21.9459 | INFO | EpamLibrary.BLL.Services.RequestService.RequestBook | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [I Am The Sorcerer King]
+2020-04-08 01:34:42.2449 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book Berserk was created
+2020-04-08 01:36:19.3433 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | EpamLibrary.BLL.Services.BookService | book Berserk was edited
+2020-04-08 01:36:23.6551 | INFO | EpamLibrary.BLL.Services.RequestService.RequestBook | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Berserk]
+2020-04-08 01:36:28.6809 | INFO | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Berserk]
+2020-04-08 01:36:28.6809 | ERROR | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | EpamLibrary.BLL.Services.RequestService | Request [2] not found
+2020-04-08 01:36:54.0974 | INFO | EpamLibrary.BLL.Services.RequestService.RequestBook | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Berserk]
+2020-04-08 01:38:19.6018 | INFO | EpamLibrary.BLL.Services.UserService.Create | EpamLibrary.BLL.Services.UserService | user [qqqq] was created
+2020-04-08 01:38:29.7909 | INFO | EpamLibrary.BLL.Services.UserService.Create | EpamLibrary.BLL.Services.UserService | user [qqqq] was created
+2020-04-08 01:38:44.7065 | INFO | EpamLibrary.BLL.Services.UserService.Create | EpamLibrary.BLL.Services.UserService | user [qqqqqq] was created
+2020-04-08 01:38:59.9479 | INFO | EpamLibrary.BLL.Services.UserService.Create | EpamLibrary.BLL.Services.UserService | user [qqqqqq] was created
+2020-04-08 01:42:07.9478 | INFO | EpamLibrary.BLL.Services.UserService.AddToRole | EpamLibrary.BLL.Services.UserService | User [ttrianon1@gmail.com] has been promoted to [librarian]
+2020-04-08 01:42:12.7072 | INFO | EpamLibrary.BLL.Services.UserService.AddToRole | EpamLibrary.BLL.Services.UserService | User [ttrianon2@gmail.com] has been promoted to [banned]

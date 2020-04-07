@@ -60,7 +60,7 @@ namespace EpamLibrary.BLL.Services
 
         public IEnumerable<BookDTO> GetSpecificAuthorBooks(string name)
         {
-            return _unitOfWork.AuthorRepository.Get(a => a.Name == name).Single().Books.ToDTO();
+            return _unitOfWork.AuthorRepository.Get(a => a.Name == name.ToLower()).Single().Books.ToDTO();
         }
 
         public IEnumerable<PublisherDTO> GetAllPublishers()
@@ -70,7 +70,7 @@ namespace EpamLibrary.BLL.Services
 
         public IEnumerable<BookDTO> GetSpecificPublisherBooks(string name)
         {
-            return _unitOfWork.PublisherRepository.Get(a => a.Name == name).Single().Books.ToDTO();
+            return _unitOfWork.PublisherRepository.Get(a => a.Name == name.ToLower()).Single().Books.ToDTO();
         }
 
         public IEnumerable<GenreDTO> GetAllGenres()
@@ -80,12 +80,12 @@ namespace EpamLibrary.BLL.Services
 
         public IEnumerable<BookDTO> GetSpecificGenreBooks(string name)
         {
-            return _unitOfWork.GenreRepository.Get(a => a.Name == name).Single().Books.ToDTO();
+            return _unitOfWork.GenreRepository.Get(a => a.Name == name.ToLower()).Single().Books.ToDTO();
         }
 
         public void AddBook(BookDTO bookDTO)
         {
-            if (_unitOfWork.BookRepository.GetByName(bookDTO.Name) == null)
+            if (_unitOfWork.BookRepository.GetByName(bookDTO.Name.ToLower()) == null)
             {
                 _unitOfWork.BookRepository.CreateBook(bookDTO.ToEntity());
                 log.Info($"book {bookDTO.Name} was created");
