@@ -12,7 +12,7 @@ namespace EpamLibrary.BLL.Interfaces
         /// <summary>
         /// returs all books with additional filtres
         /// </summary>
-        IEnumerable<BookDTO> GetAllBooks(string search = null, DateTime? start = null, DateTime? end = null);
+        IEnumerable<BookDTO> GetAllBooks(string search = null, DateTime? start = null, DateTime? end = null, string alphabet = null);
         /// <summary>
         /// returns all authors
         /// </summary>

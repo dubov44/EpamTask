@@ -47,7 +47,7 @@ namespace EpamLibrary.WEB.Controllers
                 Requests = _requestService.GetAllRequests().Where(r => r.ClientProfileId == User.Identity.GetUserId() && r.IsDeleted == false).ToDisplayVM()
             };
             ViewBag.Debt = _rentedBookService.GetUserDebt(User.Identity.GetUserId());
-
+            ViewBag.Name = User.Identity.Name;
             return View(rentedBooks);
         }
         [Authorize(Roles = "user, admin, librarian")]

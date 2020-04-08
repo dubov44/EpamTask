@@ -11,3 +11,58 @@
 2020-04-08 01:38:59.9479 | INFO | EpamLibrary.BLL.Services.UserService.Create | EpamLibrary.BLL.Services.UserService | user [qqqqqq] was created
 2020-04-08 01:42:07.9478 | INFO | EpamLibrary.BLL.Services.UserService.AddToRole | EpamLibrary.BLL.Services.UserService | User [ttrianon1@gmail.com] has been promoted to [librarian]
 2020-04-08 01:42:12.7072 | INFO | EpamLibrary.BLL.Services.UserService.AddToRole | EpamLibrary.BLL.Services.UserService | User [ttrianon2@gmail.com] has been promoted to [banned]
+2020-04-08 12:55:35.1591 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book Berserk was created
+2020-04-08 12:56:44.3701 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | EpamLibrary.BLL.Services.BookService | book Berserk was edited
+2020-04-08 12:57:31.3039 | INFO | EpamLibrary.BLL.Services.RequestService.RequestBook | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Berserk]
+2020-04-08 12:58:17.5414 | INFO | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Berserk]
+2020-04-08 12:58:17.5414 | ERROR | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | EpamLibrary.BLL.Services.RequestService | Request [1] not found
+2020-04-08 12:59:09.8142 | INFO | EpamLibrary.BLL.Services.RequestService.RequestBook | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Berserk]
+2020-04-08 12:59:15.9415 | INFO | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Berserk]
+2020-04-08 12:59:15.9415 | ERROR | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | EpamLibrary.BLL.Services.RequestService | Request [2] not found
+2020-04-08 13:00:01.3704 | INFO | EpamLibrary.BLL.Services.UserService.Create | EpamLibrary.BLL.Services.UserService | user [qqq] was created
+2020-04-08 13:03:00.8084 | INFO | EpamLibrary.BLL.Services.UserService.AddToRole | EpamLibrary.BLL.Services.UserService | User [ttrianon1@gmail.com] has been promoted to [librarian]
+2020-04-08 13:03:16.8484 | INFO | EpamLibrary.BLL.Services.UserService.Create | EpamLibrary.BLL.Services.UserService | user [qqqqqq] was created
+2020-04-08 13:03:39.3086 | INFO | EpamLibrary.BLL.Services.UserService.AddToRole | EpamLibrary.BLL.Services.UserService | User [ttrianon2@gmail.com] has been promoted to [banned]
+2020-04-08 13:18:01.4165 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Berserk] was created
+2020-04-08 13:19:51.7482 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Nanatsu No Taizai] was created
+2020-04-08 13:22:16.4284 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Kimetsu No Yaiba] was created
+2020-04-08 13:23:40.4322 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Boku No Hero Academia] was created
+2020-04-08 13:24:55.5811 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Komi-San Wa Komyushou Desu] was created
+2020-04-08 13:26:07.8470 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Goblin Slayer] was created
+2020-04-08 13:27:26.9574 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Bleach] was created
+2020-04-08 13:28:43.3775 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Re:Monster] was created
+2020-04-08 13:30:25.7589 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Mushoku Tensei - Isekai Ittara Honki Dasu] was created
+2020-04-08 13:31:49.6608 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Shokugeki No Soma] was created
+2020-04-08 13:33:19.3272 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Dr. Stone] was created
+2020-04-08 13:35:19.8317 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Enen No Shouboutai] was created
+2020-04-08 13:38:24.9939 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [The Rising Of The Shield Hero] was created
+2020-04-08 13:38:48.1257 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | EpamLibrary.BLL.Services.BookService | book The Rising Of The Shield Hero was edited
+2020-04-08 13:40:55.7193 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [One Piece] was created
+2020-04-08 13:42:04.1915 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Beastars] was created
+2020-04-08 13:43:23.8716 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | EpamLibrary.BLL.Services.BookService | book [Naruto] was created
+2020-04-08 13:46:56.8451 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | EpamLibrary.BLL.Services.BookService | book Beastars was edited
+2020-04-08 13:46:58.4301 | INFO | EpamLibrary.BLL.Services.RequestService.RequestBook | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] requested book [Beastars]
+2020-04-08 13:47:30.0529 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | EpamLibrary.BLL.Services.BookService | book Dr. Stone was edited
+2020-04-08 13:47:42.0756 | INFO | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | EpamLibrary.BLL.Services.RequestService | User [ttrianon8@gmail.com] got book [Beastars]
+2020-04-08 13:47:42.0756 | ERROR | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | EpamLibrary.BLL.Services.RequestService | Request [1] not found
+2020-04-08 13:58:19.0610 | INFO | EpamLibrary.BLL.Services.UserService.Create | EpamLibrary.BLL.Services.UserService | user [qqqqqq] was created
+2020-04-08 13:58:42.6936 | INFO | EpamLibrary.BLL.Services.UserService.Create | EpamLibrary.BLL.Services.UserService | user [qqqqqq] was created
+2020-04-08 13:59:45.8575 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | EpamLibrary.BLL.Services.BookService | book Naruto was edited
+2020-04-08 14:00:08.2588 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | EpamLibrary.BLL.Services.BookService | book Naruto was edited
+2020-04-08 14:18:18.9025 | INFO | EpamLibrary.BLL.Services.UserService.Create | EpamLibrary.BLL.Services.ServiceCreator | user [sadsd] was created
+2020-04-08 14:18:28.5410 | INFO | EpamLibrary.BLL.Services.RequestService.RequestBook | DynamicInjector038af3b371e6414bbd43ea31aa9d4cd8 | User [sadsd] requested book [One Piece]
+2020-04-08 14:19:07.5956 | INFO | EpamLibrary.BLL.Services.UserService.AddToRole | DynamicInjector06d52a13ff4c4652907a57aeed3e8a65 | User [ttrianon2@gmail.com] has been promoted to [librarian]
+2020-04-08 14:20:53.7835 | INFO | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | DynamicInjector038af3b371e6414bbd43ea31aa9d4cd8 | User [ttrianon3@gmail.com] got book [One Piece]
+2020-04-08 14:20:53.7835 | ERROR | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | DynamicInjector038af3b371e6414bbd43ea31aa9d4cd8 | Request [2] not found
+2020-04-08 14:22:51.4896 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | DynamicInjectorc7565b2c48b140da92b73c795ed4b32c | book Naruto was edited
+2020-04-08 14:23:00.3009 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | DynamicInjectorc7565b2c48b140da92b73c795ed4b32c | book Naruto was edited
+2020-04-08 14:23:02.3353 | INFO | EpamLibrary.BLL.Services.RequestService.RequestBook | DynamicInjector038af3b371e6414bbd43ea31aa9d4cd8 | User [ttrianon8@gmail.com] requested book [Naruto]
+2020-04-08 14:23:28.5641 | INFO | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | DynamicInjector038af3b371e6414bbd43ea31aa9d4cd8 | User [ttrianon8@gmail.com] got book [Naruto]
+2020-04-08 14:23:28.5641 | ERROR | EpamLibrary.BLL.Services.RequestService.ConfirmRequest | DynamicInjector038af3b371e6414bbd43ea31aa9d4cd8 | Request [3] not found
+2020-04-08 14:23:57.4001 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | DynamicInjectorc7565b2c48b140da92b73c795ed4b32c | book Naruto was edited
+2020-04-08 14:24:46.6505 | INFO | EpamLibrary.BLL.Services.UserService.AddToRole | DynamicInjector06d52a13ff4c4652907a57aeed3e8a65 | User [ttrianon2@gmail.com] has been promoted to [user]
+2020-04-08 14:25:06.0618 | INFO | EpamLibrary.BLL.Services.UserService.AddToRole | DynamicInjector06d52a13ff4c4652907a57aeed3e8a65 | User [ttrianon1@gmail.com] has been promoted to [librarian]
+2020-04-08 14:25:09.1033 | INFO | EpamLibrary.BLL.Services.UserService.AddToRole | DynamicInjector06d52a13ff4c4652907a57aeed3e8a65 | User [ttrianon2@gmail.com] has been promoted to [banned]
+2020-04-08 14:27:12.1700 | INFO | EpamLibrary.BLL.Services.BookService.AddBook | DynamicInjectorc7565b2c48b140da92b73c795ed4b32c | book [fdfjsg] was created
+2020-04-08 14:28:04.1148 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | DynamicInjectorc7565b2c48b140da92b73c795ed4b32c | book fdfjsg was edited
+2020-04-08 15:46:46.3664 | INFO | EpamLibrary.BLL.Services.BookService.EditBook | EpamLibrary.BLL.Services.BookService | book fdfjsg was edited

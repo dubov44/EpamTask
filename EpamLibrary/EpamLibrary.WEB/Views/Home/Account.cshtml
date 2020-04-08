@@ -7,6 +7,9 @@
 }
 
 @section Body{
+    <div>
+        @ViewBag.Name
+    </div>
     @if (Model.RentedBooks.Count() > 0)
     {
         <h2>Debt: @ViewBag.Debt</h2>

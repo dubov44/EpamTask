@@ -34,6 +34,8 @@ namespace EpamLibrary.BLL.Services
         public OperationDetails RequestBook(int bookId, string userId)
         {
             var book = _unitOfWork.BookRepository.GetById(bookId);
+            if (book.PublicationDate > DateTime.Now)
+                return new OperationDetails(false, "Sorry, this book hasn't been published yet", "");
             if (book.Quantity <= 0)
                 return new OperationDetails(false, "Sorry, this book is out of stock now", "");
             if (book != null)

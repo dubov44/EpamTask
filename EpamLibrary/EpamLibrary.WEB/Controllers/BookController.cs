@@ -27,15 +27,16 @@ namespace EpamLibrary.WEB.Controllers
         {
             return RedirectToAction("Index", "Home");
         }
-        public ActionResult All(int page = 1, string search = null, DateTime? start = null, DateTime? end = null)
+        public ActionResult All(int page = 1, string search = null, DateTime? start = null, DateTime? end = null, string alphabet = null)
         {
             Session["search"] = search;
             Session["start"] = start;
             Session["end"] = end;
-            var pager = new Pager(_bookService.GetAllBooks(search, start, end).Count(), page, 6, 3);
+            Session["alphabet"] = alphabet;
+            var pager = new Pager(_bookService.GetAllBooks(search, start, end, alphabet).Count(), page, 6, 3);
             var books = new IndexViewModel<BookViewModel>()
             {
-                Items = _bookService.GetAllBooks(search, start, end).Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize).ToDisplayVM(),
+                Items = _bookService.GetAllBooks(search, start, end, alphabet).Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize).ToDisplayVM(),
                 Pager = pager,
                 Model = new BookViewModel()
             };

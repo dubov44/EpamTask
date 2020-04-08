@@ -18,7 +18,7 @@ namespace EpamLibrary.BLL.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public IEnumerable<BookDTO> GetAllBooks(string search = null, DateTime? start = null, DateTime? end = null)
+        public IEnumerable<BookDTO> GetAllBooks(string search = null, DateTime? start = null, DateTime? end = null, string alphabet = null)
         {
             var books = _unitOfWork.BookRepository.Get().OrderByDescending(b => b.Id).ToList();
             if (search != null)
@@ -45,6 +45,8 @@ namespace EpamLibrary.BLL.Services
             {
                 books = books.Where(a => a.PublicationDate < end).ToList();
             }
+            if (alphabet == "on")
+                books = books.OrderBy(b => b.Name).ToList();
             return books.ToDTO();
         }
 
@@ -88,7 +90,7 @@ namespace EpamLibrary.BLL.Services
             if (_unitOfWork.BookRepository.GetByName(bookDTO.Name.ToLower()) == null)
             {
                 _unitOfWork.BookRepository.CreateBook(bookDTO.ToEntity());
-                log.Info($"book {bookDTO.Name} was created");
+                log.Info($"book [{bookDTO.Name}] was created");
             }
             else
             {
